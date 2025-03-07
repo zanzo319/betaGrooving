@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+.navbar {
+  display: flex;
+  justify-content: center; /* Centra il menu */
+  align-items: center;
+  background-color: black;
+  padding: 30px 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  font-family: "MusticaPro-SemiBold";
+  transition: background-color 0.3s ease;
+}
+
+.navbar.transparent {
+  background-color: transparent; /* Colore trasparente quando viene aggiunta la classe */
+}
+
+.logoNav {
+  position: absolute;
+  left: 30px; /* Mantiene il logo a sinistra */
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: limegreen;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  position: relative;
+  padding: 5px 0;
+  transition: color 0.5s ease-in-out;
+}
+
+/* Striscia animata sotto i link */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: limegreen;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-links a::after {
+  transform-origin: left;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color: limegreen;
+}
+
+/* Social Icons nella Navbar */
+.navbar-icons {
+  position: absolute;
+  left: 30px; /* Posiziona le icone all'estrema sinistra */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: 2px solid limegreen;
+  border-radius: 50%;
+  color: limegreen;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.navbar .icon:hover {
+  background-color: limegreen;
+  color: black;
+}

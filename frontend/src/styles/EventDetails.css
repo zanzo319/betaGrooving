@@ -1,0 +1,87 @@
+.event-details-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+}
+
+.event-details-container img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.event-details-container h2 {
+    margin: 15px 0;
+}
+
+.event-details-container p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.event-details-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.event-details-container li {
+    font-size: 16px;
+    color: white;
+}
+
+.buy-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: limegreen;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+.buy-button:hover {
+    background-color: darkgreen;
+}
+
+.available {
+    color: limegreen;
+    font-weight: bold;
+}
+
+.sold-out {
+    color: red;
+    font-weight: bold;
+}
+
+.sold-out-button {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+/* Icona mappa */
+.map-icon {
+    font-size: 20px;
+    margin-left: 5px;
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.map-icon:hover {
+    color: darkred;
+}
+
+/* Stile responsive */
+@media (max-width: 500px) {
+    .event-details-container {
+        max-width: 90%;
+    }
+}

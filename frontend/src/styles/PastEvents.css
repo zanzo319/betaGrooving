@@ -1,0 +1,101 @@
+/* Contenitore Eventi Passati */
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+.eventi-passati-container {
+  max-width: 900px;
+  margin: 100px auto 50px;
+  padding: 20px;
+  background-color: black;
+  color: limegreen;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Evita che i contenuti escano dal bordo */
+}
+
+/* Titolo della Pagina */
+.eventi-passati-container h1 {
+  font-family: "Linked Now Extrabold";
+  font-size: 5rem; /* Aumenta la dimensione del carattere */
+  margin-bottom: 20px;
+  color: limegreen;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Aggiunge un'ombra per migliorare la visibilità */
+}
+
+/* Carta Evento */
+.evento {
+  padding: 15px;
+  border-bottom: 1px solid limegreen;
+  background-color: #222;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.evento:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.evento:last-child {
+  border-bottom: none;
+}
+
+.event-details {
+  text-align: left;
+}
+
+/* Modalità Responsive */
+@media screen and (max-width: 768px) {
+  .eventi-passati-container {
+    padding: 15px;
+  }
+
+  .eventi-passati-container h1 {
+    font-size: 2rem;
+  }
+
+  .evento {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .eventi-passati-container {
+    padding: 10px;
+  }
+
+  .eventi-passati-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .evento {
+    padding: 8px;
+  }
+}
+
+.error-message, .loading-message, .no-events {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+}

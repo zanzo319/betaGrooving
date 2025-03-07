@@ -1,0 +1,118 @@
+/* Aggiungi questo CSS alla fine del tuo file CSS */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.footer-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nascondi la barra di scorrimento */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nascondi la barra di scorrimento per tutti gli elementi */
+* {
+  -ms-overflow-style: none;  /* IE e Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.footer {
+  background-color: black;
+  font-family: "MusticaPro-SemiBold";
+  color: limegreen;
+  padding: 40px;
+  font-size: 1rem;
+  width: 100vw;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between; /* Distribuisce lo spazio tra le sezioni di sinistra e destra */
+  align-items: center; /* Allinea gli elementi verticalmente al centro */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Testo Footer - Sezione Sinistra */
+.footer-left {
+  text-align: left;
+  line-height: 30px;
+}
+
+.footer-left p,
+.footer-left a {
+  margin: 5px 0;
+  text-align: left;
+}
+
+/* Icone Social - Sezione Destra */
+.footer-right {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+}
+
+.footer .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 2px solid limegreen;
+  border-radius: 50%;
+  color: limegreen;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer .icon:hover {
+  background-color: limegreen;
+  color: black;
+  transform: scale(1.1);
+}
+
+/* Email */
+.footer-email {
+  color: limegreen; /* Stesso colore delle altre scritte */
+  text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+/* Modalità responsive */
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .footer-left,
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer .icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    font-size: 0.8rem;
+  }
+
+  .footer .icon {
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+}

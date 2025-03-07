@@ -1,0 +1,55 @@
+.event-highlight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.event-image {
+  width: 280px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.event-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.event-date,
+.event-location,
+.event-lineup {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.buy-ticket-button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 2px solid limegreen;
+  transition: background 0.3s;
+}
+
+.buy-ticket-button:hover {
+  background-color: darkgreen;
+  color: white;
+}

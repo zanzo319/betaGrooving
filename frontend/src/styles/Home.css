@@ -1,0 +1,241 @@
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: auto; /* Disabilita il comportamento smooth predefinito */
+}
+
+/* Contenitore principale */
+.home-container {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  padding: 50px 20px;
+  overflow: hidden;
+}
+
+/* Logo */
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+.logo {
+  font-size: 6rem;
+  font-weight: bold;
+  font-family: "Linked Now Extrabold"; 
+  color: limegreen;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+/* Motto */
+
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+.motto {
+  font-size: 1.7rem;
+  font-family: "MusticaPro-SemiBold";
+  margin-bottom: 30px;
+}
+
+/* Pulsante "Show Events" */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.explore-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-family: "MusticaPro-SemiBold";
+  font-weight: bold;
+  color: white;
+  border: 2px solid limegreen;
+  border-radius: 30px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+  cursor: pointer;
+}
+
+.explore-button:hover {
+  background: darkgreen;
+  color: white;
+}
+
+/* Sezione Evento RECENTE */
+.home-event-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto; /* Spazio per separarlo dal resto della home */
+  padding: 40px 20px;
+  gap: 20px;
+  border: 2px solid limegreen;
+  border-radius: 10px;
+  background-color: rgba(50, 205, 50, 0.1);
+  box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
+  transition: transform 0.3s ease-in-out;
+}
+
+.home-event-section:hover {
+  transform: scale(1.02);
+}
+
+/* Immagine Evento */
+.home-event-image {
+  width: 40%;
+  max-width: 400px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(50, 205, 50, 0.3);
+}
+
+.home-event-image:hover {
+  transform: scale(1.05);
+}
+
+/* Info Evento */
+.home-event-info {
+  text-align: left;
+  width: 55%;
+}
+
+.home-event-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: limegreen;
+  text-shadow: 0 0 10px limegreen;
+}
+
+.home-event-date {
+  font-size: 1rem;
+  color: lightgray;
+}
+
+.home-event-location {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.home-event-lineup {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Pulsante "Buy Ticket" */
+.buy-ticket-button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border: 2px solid limegreen;
+  border-radius: 30px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+  cursor: pointer;
+}
+
+.buy-ticket-button:hover {
+  background: darkgreen;
+  color: white;
+}
+
+/* Modalità responsive */
+@media (max-width: 1024px) {
+  .home-event-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-event-image {
+    width: 80%;
+  }
+
+  .home-event-info {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .motto {
+    font-size: 1.2rem;
+  }
+
+  .explore-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .home-event-title {
+    font-size: 1.5rem;
+  }
+
+  .buy-ticket-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .motto {
+    font-size: 1rem;
+  }
+
+  .explore-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .home-event-title {
+    font-size: 1.2rem;
+  }
+
+  .buy-ticket-button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+}

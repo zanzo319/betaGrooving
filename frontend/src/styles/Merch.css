@@ -1,0 +1,336 @@
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  background-color: black;
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* Fonts personalizzati */
+@font-face {
+  font-family: "Linked Now Extrabold";
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
+}
+
+@font-face {
+  font-family: "MusticaPro-SemiBold";
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
+}
+
+/* Contenitore principale */
+.merch-container {
+  text-align: center;
+  padding: 50px 20px;
+  overflow: hidden;
+}
+
+/* Logo */
+.logo {
+  font-family: "Linked Now Extrabold";
+  font-size: 5rem;
+  color: limegreen;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+/* Motto */
+.motto {
+  font-family: "MusticaPro-SemiBold";
+  font-size: 1.7rem;
+  margin-bottom: 50px;
+}
+
+/* Titolo categoria */
+.category-title {
+  font-size: 2rem;
+  color: limegreen;
+  margin: 40px 0 10px;
+  text-transform: uppercase;
+}
+/* Contenitore per i Tanktop */
+.product-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto; /* Aumentato il margine superiore per allontanare i Tanktop da LET'S GROOVE */
+  max-width: 600px;
+}
+
+/* Singolo prodotto */
+.merch-item {
+  min-width: 250px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: none;
+  display: inline-block;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+/* Spaziatura tra i prodotti */
+.merch-item + .merch-item {
+  margin-left: 20px;
+}
+
+/* Immagine prodotto */
+.merch-image {
+  width: 100%;
+  max-width: 250px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+/* Contenitore per Hats */
+.shophat-container {
+  display: flex;
+  justify-content: center; /* Centra il contenuto */
+  align-items: center;
+  position: relative; /* Permette il posizionamento assoluto delle frecce */
+  margin: 60px auto;
+  max-width: 800px;
+  gap: 20px;
+}
+
+/* Contenitore specifico per Shopper */
+.shopper-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra il contenuto */
+  position: relative; /* Permette il posizionamento assoluto delle frecce */
+  font-family: "MusticaPro-SemiBold";
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.shopper-image {
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Contenitore specifico per Hats */
+.hats-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra il contenuto */
+  position: relative; /* Permette il posizionamento assoluto delle frecce */
+  font-family: "MusticaPro-SemiBold";
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hats-image {
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* Frecce per lo slider di Shopper e Hats - appaiono al hover */
+.shophat-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: limegreen;
+  border: none;
+  font-size: 3.5rem;
+  font-family: "Linked Now Extrabold";
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.shopper-container:hover .shophat-arrow,
+.hats-container:hover .shophat-arrow {
+  opacity: 1;
+}
+
+.shophat-arrow.left {
+  left: 10px;
+}
+
+.shophat-arrow.right {
+  right: 10px;
+}
+/* Nome prodotto */
+.merch-name {
+  font-family: "MusticaPro-SemiBold";
+  font-size: 1.5rem;
+  color: limegreen;
+  margin: 10px 0;
+}
+
+/* Prezzo prodotto */
+.merch-price {
+  font-size: 1.2rem;
+  font-family: "MusticaPro-SemiBold";
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* Bottone Order Now */
+.order-button {
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-family: "Linked Now Extrabold";
+  color: white;
+  border: 2px solid limegreen;
+  border-radius: 30px;
+  background-color: black;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.order-button:hover {
+  background: darkgreen;
+}
+
+/* Pulsante LET'S GROOVE con transizione simile a logo e motto */
+.explore-button {
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Linked Now Extrabold";
+  padding: 10px 20px;
+  border: 2px solid limegreen;
+  cursor: pointer;
+  margin-bottom: 60px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.explore-button.appear {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.explore-button:hover {
+  background-color: darkgreen;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .logo {
+    font-size: 3rem;
+  }
+  
+  .motto {
+    font-size: 1.2rem;
+  }
+  
+  .category-title {
+    font-size: 1.5rem;
+  }
+  
+  .merch-name {
+    font-size: 1.2rem;
+  }
+  
+  .order-button {
+    padding: 8px 15px;
+    font-size: 1rem;
+  }
+  
+  .product-container, .shophat-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 90%;
+  }
+  
+  .merch-item {
+    margin-bottom: 20px;
+  }
+  
+  .shopper-image, .hats-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .shophat-arrow {
+    font-size: 2.5rem; /* Riduci la dimensione delle frecce */
+  }
+
+  .hats-info, .shopper-info {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* Aggiungi un po' di margine intorno alle informazioni dei prodotti */
+  .hats-info, .shopper-info {
+    margin: 20px;
+  }
+}
+
+/* Extra small devices (smartphones, 600px and down) */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2.5rem;
+  }
+  
+  .motto {
+    font-size: 1rem;
+  }
+  
+  .category-title {
+    font-size: 1.2rem;
+  }
+  
+  .merch-name {
+    font-size: 1rem;
+  }
+  
+  .order-button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+  
+  .product-container, .shophat-container {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+  }
+  
+  .merch-item {
+    margin-bottom: 15px;
+  }
+  
+  .shopper-image, .hats-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .shophat-arrow {
+    font-size: 2rem; /* Riduci ulteriormente la dimensione delle frecce */
+  }
+
+  .hats-info, .shopper-info {
+    text-align: center;
+    margin: 5px 0;
+  }
+
+  /* Aggiungi un po' di margine intorno alle informazioni dei prodotti */
+  .hats-info, .shopper-info {
+    margin: 10px;
+  }
+}

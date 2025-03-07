@@ -1,0 +1,12 @@
+.event-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.event-card {
+  background: black;
+  color: limegreen;
+  padding: 15px;
+  border-radius: 5px;
+}
