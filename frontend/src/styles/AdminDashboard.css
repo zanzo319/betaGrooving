@@ -1,101 +1,105 @@
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
 .admin-dashboard {
-    max-width: 1000px;
-    margin: 50px auto;
+    font-family: "Linked Now Extrabold", "MusticaPro-SemiBold", sans-serif;
+    max-width: 1200px;
+    margin: 120px auto; /* Spostato più in basso */
     padding: 20px;
     background-color: #222;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
-/* Menu di navigazione */
-.admin-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 15px;
-    border-radius: 5px;
-}
-
-.admin-nav h2 {
-    margin: 0;
-    font-size: 1.5rem;
+.admin-dashboard h2 {
+    text-align: center;
     color: limegreen;
+    font-size: 2rem;
 }
 
-.admin-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
+.eventi-prossimi {
+    margin-top: 30px;
 }
 
-.admin-nav ul li {
-    display: inline;
-}
-
-.admin-nav ul li a, .logout-btn {
-    text-decoration: none;
-    color: white;
-    background-color: limegreen;
-    padding: 10px;
-    border-radius: 5px;
-    transition: 0.3s;
-    font-weight: bold;
-}
-
-.logout-btn {
-    cursor: pointer;
-    border: none;
-}
-
-.admin-nav ul li a:hover, .logout-btn:hover {
-    background-color: green;
-}
-
-/* Contenuto dashboard */
-.admin-content {
+.eventi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     margin-top: 20px;
 }
 
-.admin-content h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    color: limegreen;
-}
-
-.error {
-    color: red;
-    text-align: center;
-    font-weight: bold;
-}
-
-.evento {
-    padding: 15px;
-    border: 1px solid #444;
-    border-radius: 5px;
+.evento-card {
     background-color: #333;
+    padding: 15px;
+    border-radius: 10px;
     text-align: center;
+    transition: 0.3s;
 }
 
-.evento img {
-    max-width: 100%;
+.evento-locandina {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 5px;
     margin-top: 10px;
 }
 
-/* Responsive */
+.link-completo {
+    display: inline-block;
+    margin-top: 20px;
+    color: limegreen;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid limegreen;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.link-completo:hover {
+    background-color: limegreen;
+    color: black;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .admin-dashboard {
-        padding: 10px;
+        padding: 15px;
     }
 
-    .admin-nav {
-        flex-direction: column;
-        text-align: center;
+    .eventi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 3840px) {
+    .admin-dashboard {
+        max-width: 1600px;
+        padding: 30px;
     }
 
-    .admin-nav ul {
-        flex-direction: column;
-        gap: 10px;
+    .admin-dashboard h2 {
+        font-size: 2.5rem;
+    }
+
+    .evento-card {
+        padding: 20px;
     }
 }

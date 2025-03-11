@@ -27,7 +27,7 @@ const EventDetails = () => {
 
     return (
         <div className="event-details-container">
-            <img src={`../uploads/${evento.locandina}`} alt={evento.titolo} />
+            <img src={`http://localhost:8080/uploads/${evento.locandina}`} alt={evento.titolo} />
             <h2>{evento.titolo}</h2>
             <p><strong>When:</strong> {new Date(evento.data).toLocaleDateString()}</p>
             <p><strong>Time:</strong> {evento.orario}</p>

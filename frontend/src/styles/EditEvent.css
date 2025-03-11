@@ -1,0 +1,89 @@
+.edit-event-container {
+    font-family: "Linked Now Extrabold", "MusticaPro-SemiBold", sans-serif;
+    max-width: 600px;
+    margin: 120px auto;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.edit-event-container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: limegreen;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #ddd;
+}
+
+input,
+textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #2a2a2a;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border: 2px solid limegreen;
+    box-shadow: 0 0 8px limegreen;
+}
+
+button {
+    padding: 12px;
+    background-color: limegreen;
+    border: none;
+    border-radius: 5px;
+    color: #222;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #00cc00;
+    transform: scale(1.05);
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.success {
+    color: limegreen;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .edit-event-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}

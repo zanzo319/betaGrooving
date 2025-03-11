@@ -41,6 +41,12 @@ const eventSchema = new mongoose.Schema(
       required: [true, "Il numero di biglietti disponibili è obbligatorio"],
       min: [0, "I biglietti disponibili non possono essere negativi"],
     },
+    lineup: {
+      type: String,
+      required: [true, "La lineup è obbligatoria"], // Nuovo campo obbligatorio
+      trim: true,
+      minlength: [3, "La lineup deve avere almeno 3 caratteri"],
+    },
     archiviato: {
       type: Boolean,
       default: false,

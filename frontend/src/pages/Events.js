@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag di
 import axios from "axios";
 import EventHighlight from "../components/EventHighlight";
 import EventCard from "../components/EventCard";
-import "../styles/Events.css"; // Mantieni il file CSS desktop
+import "../styles/Events.css";
 
 const Events = () => {
     const [eventi, setEventi] = useState([]);

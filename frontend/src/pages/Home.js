@@ -104,7 +104,7 @@ const Home = () => {
                     style={backgroundStyle} // Applica il gradiente dinamico
                 >
                     <img
-                        src={require(`../uploads/${eventoRecente.locandina}`)} // Percorso dinamico all'immagine
+                        src={`http://localhost:8080/uploads/${eventoRecente.locandina}`} // Percorso dinamico all'immagine
                         alt={eventoRecente.titolo}
                         className="home-event-image"
                     />

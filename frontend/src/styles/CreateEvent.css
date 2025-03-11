@@ -1,56 +1,88 @@
-.create-event-container {
-    max-width: 400px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #1e1e1e;
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
 }
 
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+/* Contenitore principale */
+.create-event-container {
+    font-family: "Linked Now Extrabold", "MusticaPro-SemiBold", sans-serif;
+    max-width: 600px;
+    margin: 120px auto; /* Coerenza con AdminDashboard */
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* Titolo della pagina */
 .create-event-container h2 {
     text-align: center;
+    font-size: 2rem;
+    color: limegreen;
     margin-bottom: 20px;
 }
 
+/* Form */
 form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
+/* Etichette */
 label {
     font-weight: bold;
-    margin-top: 10px;
+    font-size: 1rem;
+    color: #ddd;
 }
 
+/* Input e textarea */
 input,
 textarea {
-    padding: 10px;
-    margin-top: 5px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     background: #2a2a2a;
-    color: white;
-    font-size: 16px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s;
 }
 
 textarea {
     resize: vertical;
-    min-height: 80px;
+    min-height: 100px;
 }
 
+/* Focus */
 input:focus,
 textarea:focus {
-    outline: 2px solid #00ff00;
+    outline: none;
+    border: 2px solid limegreen;
 }
 
+/* Pulsante */
 button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #00ff00;
+    padding: 12px;
+    background-color: limegreen;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    color: #222;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -58,17 +90,37 @@ button {
 
 button:hover {
     background-color: #00cc00;
+    transform: scale(1.05);
 }
 
-.error-message {
+/* Messaggi */
+.error {
     color: red;
     text-align: center;
-    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-/* Stile responsive */
-@media (max-width: 500px) {
+.success {
+    color: limegreen;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
     .create-event-container {
         max-width: 90%;
+        padding: 15px;
+    }
+}
+
+@media (min-width: 3840px) {
+    .create-event-container {
+        max-width: 800px;
+        padding: 30px;
+    }
+
+    .create-event-container h2 {
+        font-size: 2.5rem;
     }
 }

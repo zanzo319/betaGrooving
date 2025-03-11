@@ -7,7 +7,7 @@ const EventCard = ({ evento }) => {
       <div className="event-content">
         {evento.locandina && (
           <img
-            src={require(`../uploads/${evento.locandina}`)}
+            src={`http://localhost:8080/uploads/${evento.locandina}`}
             alt={evento.titolo}
             className="event-thumbnail"
           />

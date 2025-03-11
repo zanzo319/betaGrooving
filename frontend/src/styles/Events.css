@@ -130,16 +130,11 @@ body, html {
 /* Singolo evento nella lista */
 .event-card {
   background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid limegreen;
   padding: 15px;
   width: 300px;
   text-align: center;
   border-radius: 8px;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.event-card:hover {
-  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Immagine evento */

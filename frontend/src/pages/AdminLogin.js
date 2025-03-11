@@ -17,27 +17,30 @@ const AdminLogin = () => {
         try {
             const response = await fetch("http://localhost:8080/api/admin/login", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json", // Per maggiore compatibilità
+                },
                 body: JSON.stringify({ username, password }),
-                credentials: "include" // Importante per le sessioni!
             });
 
             const data = await response.json();
 
             if (!response.ok) {
-                throw new Error(data.message || "Errore nel login");
+                throw new Error(data.message || "Si è verificato un errore durante il login");
             }
 
-            // Salva lo stato di autenticazione
-            sessionStorage.setItem("isAdmin", "true");
+            // Salva il token JWT in sessionStorage
+            sessionStorage.setItem("token", data.token);
 
             alert("Login effettuato con successo!");
-            navigate("/admin-dashboard"); // Reindirizzamento corretto
-        } catch (error) {
-            setError(error.message);
+            navigate("/admin-dashboard"); // Reindirizzamento alla dashboard
+        } catch (err) {
+            console.error("Errore durante il login:", err); // Log dettagliato per debug
+            setError(err.message); // Messaggio visibile all'utente
+        } finally {
+            setLoading(false); // Ferma il caricamento
         }
-
-        setLoading(false);
     };
 
     return (

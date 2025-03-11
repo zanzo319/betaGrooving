@@ -1,0 +1,180 @@
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+.list-event-page {
+    font-family: "Linked Now Extrabold", "MusticaPro-SemiBold", sans-serif;
+    max-width: 1200px;
+    margin: 120px auto;
+    padding: 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.list-event-page h2 {
+    text-align: center;
+    color: limegreen;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+.search-bar:focus {
+    border: 2px solid limegreen;
+}
+
+.eventi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.evento-card {
+    background-color: #333;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "MusticaPro-SemiBold", sans-serif;
+    line-height: 1.8rem;
+    transition: transform 0.3s;
+}
+
+.evento-info h4 {
+    font-family: "Linked Now Extrabold", sans-serif;
+    color: limegreen;
+    font-size: 1.5rem;
+}
+
+.evento-locandina {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.evento-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    gap: 10px;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.edit-btn,
+.delete-btn {
+    border: none;
+    font-family: "MusticaPro-SemiBold", sans-serif;
+    font-size: 1rem;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.edit-btn {
+    background-color: #007bff;
+}
+
+.edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+.no-events {
+    text-align: center;
+    color: #aaa;
+}
+
+.archive-btn,
+.delete-btn {
+    font-family: "MusticaPro-SemiBold", sans-serif;
+    font-size: 1rem;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.archive-btn {
+    background-color: #ddab16; /* Colore arancione per Archivia */
+}
+
+.archive-btn:hover {
+    background-color: #c09003;
+}
+
+.archive-btn:disabled {
+    background-color: #6c757d; /* Grigio per pulsante disabilitato */
+    cursor: not-allowed;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #a71d2a;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .eventi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 3840px) {
+    .list-event-page {
+        max-width: 1600px;
+        padding: 30px;
+    }
+
+    .list-event-page h2 {
+        font-size: 2.5rem;
+    }
+}

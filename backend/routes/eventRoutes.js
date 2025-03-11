@@ -3,16 +3,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const Event = require("../models/eventModel");
-
+const { verifyToken, verifyAdmin } = require("./adminRoutes"); // Import middleware
 const router = express.Router();
-
-// Middleware per verificare se l'admin è autenticato
-const verifyAdminSession = (req, res, next) => {
-    if (!req.session || !req.session.adminId) {
-        return res.status(403).json({ message: "Accesso non autorizzato" });
-    }
-    next();
-};
 
 // Configurazione per l'upload delle locandine
 const storage = multer.diskStorage({
@@ -68,16 +60,19 @@ router.get("/", async (req, res) => {
 });
 
 // Creazione evento (protetta)
-router.post("/admin-dashboard/create-event", verifyAdminSession, upload.single("locandina"), async (req, res) => {
+console.log("verifyToken:", verifyToken); // Deve essere una funzione
+console.log("verifyAdmin:", verifyAdmin); // Deve essere una funzione
+console.log("upload.single:", upload.single); // Deve essere una funzione
+router.post("/admin/create-event", verifyToken, verifyAdmin, upload.single("locandina"), async (req, res) => {
     try {
-        const { titolo, data, luogo, bigliettiDisponibili } = req.body;
+        const { titolo, data, luogo, bigliettiDisponibili, lineup } = req.body;
         const locandina = req.file ? req.file.filename : null;
 
         if (bigliettiDisponibili < 0) {
             return res.status(400).json({ message: "I biglietti disponibili non possono essere negativi" });
         }
 
-        const evento = new Event({ titolo, data, luogo, locandina, bigliettiDisponibili });
+        const evento = new Event({ titolo, data, luogo, locandina, bigliettiDisponibili, lineup });
         await evento.save();
         res.status(201).json({ message: "Evento aggiunto con successo", evento });
     } catch (error) {
@@ -86,9 +81,10 @@ router.post("/admin-dashboard/create-event", verifyAdminSession, upload.single("
 });
 
 // Modifica evento
-router.put("/admin-dashboard/:id", verifyAdminSession, validateObjectId, upload.single("locandina"), async (req, res) => {
+router.put("/:id", verifyToken, verifyAdmin, validateObjectId, upload.single("locandina"), async (req, res) => {
     try {
-        const { titolo, data, luogo, bigliettiDisponibili } = req.body;
+        console.log("Richiesta arrivata per modifica ID:", req.params.id); 
+        const { titolo, data, luogo, bigliettiDisponibili, lineup } = req.body;
         const evento = await Event.findById(req.params.id);
 
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });
@@ -105,6 +101,7 @@ router.put("/admin-dashboard/:id", verifyAdminSession, validateObjectId, upload.
         evento.data = data;
         evento.luogo = luogo;
         evento.bigliettiDisponibili = bigliettiDisponibili;
+	    evento.lineup = lineup;
 
         if (req.file) {
             evento.locandina = req.file.filename;
@@ -113,12 +110,13 @@ router.put("/admin-dashboard/:id", verifyAdminSession, validateObjectId, upload.
         await evento.save();
         res.json({ message: "Evento aggiornato con successo", evento });
     } catch (error) {
+        console.error("Errore durante la modifica dell'evento:", error);
         res.status(500).json({ message: "Errore nella modifica dell'evento", error });
     }
 });
 
-// Eliminazione evento
-router.delete("/admin-dashboard/:id", verifyAdminSession, validateObjectId, async (req, res) => {
+// Eliminazione evento (protetta)
+router.delete("/:id", verifyToken, verifyAdmin, validateObjectId, async (req, res) => {
     try {
         const evento = await Event.findById(req.params.id);
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });
@@ -135,27 +133,29 @@ router.get("/:id", validateObjectId, async (req, res) => {
     try {
         const evento = await Event.findById(req.params.id);
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });
-
         res.json(evento);
+	console.log("Richiesta arrivata per archiviazione ID:", req.params.id);
     } catch (error) {
         res.status(500).json({ message: "Errore nel recupero dell'evento", error });
     }
 });
 
-// Archivia un evento
-router.put("/admin-dashboard/archivia/:id", verifyAdminSession, validateObjectId, async (req, res) => {
+// Archivia un evento (protetta)
+router.put("/:id/archive", verifyToken, verifyAdmin, validateObjectId, async (req, res) => {
     try {
+        console.log("Richiesta arrivata per archiviazione ID:", req.params.id); // Posizionato correttamente
         const evento = await Event.findByIdAndUpdate(req.params.id, { archiviato: true }, { new: true });
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });
 
         res.json({ message: "Evento archiviato con successo", evento });
     } catch (error) {
+        console.error("Errore nell'archiviazione dell'evento:", error);
         res.status(500).json({ message: "Errore nell'archiviazione dell'evento", error });
     }
 });
 
-// Ripristina un evento archiviato
-router.put("/admin-dashboard/ripristina/:id", verifyAdminSession, validateObjectId, async (req, res) => {
+// Ripristina un evento archiviato (protetta)
+router.put("/admin/ripristina/:id", verifyToken, verifyAdmin, validateObjectId, async (req, res) => {
     try {
         const evento = await Event.findByIdAndUpdate(req.params.id, { archiviato: false }, { new: true });
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });

@@ -13,6 +13,8 @@ const About = lazy(() => import("./pages/About"));
 const AdminLogin = lazy(() => import("./pages/AdminLogin"));
 const AdminDashboard = lazy(() => import("./pages/AdminDashboard"));
 const CreateEvent = lazy(() => import("./pages/CreateEvent"));
+const ListEvent = lazy(() => import("./pages/ListEvent"));
+const EditEvent = lazy(() => import("./pages/EditEvent"));
 const EventDetails = lazy(() => import("./components/EventDetails"));
 const EventList = lazy(() => import("./components/EventList"));
 const Merch = lazy(() => import("./pages/Merch"));
@@ -30,9 +32,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/admin-login" element={<AdminLogin />} />
-                <Route path="/admin-dashboard" element={<AdminDashboard />} >
-                  <Route path="create-event" element={<CreateEvent />} />
-                </Route>
+                <Route path="/admin-dashboard" element={<AdminDashboard />} /> 
+                <Route path="/admin-dashboard/create-event" element={<CreateEvent />} />
+                <Route path="/admin-dashboard/edit-event/:id" element={<EditEvent />} />
+                <Route path="/admin-dashboard/event-list" element={<ListEvent />} />
                 <Route path="/events" element={<Events />} />
                 <Route path="/eventi/:id" element={<EventDetails />} />
                 <Route path="/past-events" element={<EventiPassati />} />
