@@ -27,8 +27,9 @@ body::-webkit-scrollbar {
   background-color: black;
   font-family: "MusticaPro-SemiBold";
   color: limegreen;
-  padding: 40px;
+  padding: 30px;
   font-size: 1rem;
+  margin-top: 50%;
   width: 100vw;
   position: relative;
   bottom: 0;

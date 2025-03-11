@@ -14,7 +14,7 @@ const verifyAdminSession = (req, res, next) => {
     next();
 };
 
-// Configurazione upload locandina
+// Configurazione per l'upload delle locandine
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         const uploadDir = path.join(__dirname, "../uploads");
@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-// Middleware di validazione ID MongoDB
+// Middleware per validare gli ID MongoDB
 const validateObjectId = (req, res, next) => {
     if (!req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
         return res.status(400).json({ message: "ID non valido" });
@@ -57,7 +57,7 @@ router.get("/events", async (req, res) => {
     }
 });
 
-// Recupera tutti gli eventi (aggiunta nuova rotta)
+// Recupera tutti gli eventi
 router.get("/", async (req, res) => {
     try {
         const eventi = await Event.find();
@@ -84,6 +84,7 @@ router.post("/admin-dashboard/create-event", verifyAdminSession, upload.single("
         res.status(500).json({ message: "Errore nella creazione dell'evento", error });
     }
 });
+
 // Modifica evento
 router.put("/admin-dashboard/:id", verifyAdminSession, validateObjectId, upload.single("locandina"), async (req, res) => {
     try {
@@ -165,4 +166,5 @@ router.put("/admin-dashboard/ripristina/:id", verifyAdminSession, validateObject
     }
 });
 
+// Esporta il router
 module.exports = router;

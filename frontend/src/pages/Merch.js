@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
+import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag dinamici
 import { motion } from "framer-motion";
 import "../styles/Merch.css";
 
@@ -27,7 +28,7 @@ const Merch = () => {
     ]
   };
 
-    // Funzione per scorrere ai prodotti
+  // Funzione per scorrere ai prodotti
   const scrollToProducts = () => {
     productsRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -62,7 +63,28 @@ const Merch = () => {
 
   return (
     <motion.div className="merch-container" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
- 
+      {/* Meta tag per la pagina Merch */}
+      <Helmet>
+        <title>Grooving Merchandise - Style and Sound</title>
+        <meta
+          name="description"
+          content="Explore Grooving's unique merchandise collection. From stylish tank tops to hats and shoppers, carry the Grooving vibe with you everywhere."
+        />
+        <meta
+          name="keywords"
+          content="Grooving merchandise, tank tops, hats, shoppers, music merchandise, Grooving shop"
+        />
+        <meta name="author" content="Grooving Team" />
+        <meta property="og:title" content="Grooving Merchandise - Style and Sound" />
+        <meta
+          property="og:description"
+          content="Discover Grooving's exclusive merch collection. Get your stylish tank tops, shoppers, and hats today!"
+        />
+        <meta property="og:image" content="/images/og-merch.png" />
+        <meta property="og:url" content="http://yourdomain.com/merch" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
+
       <motion.h1 className="logo" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }}>
         GET INTO THE GROOVE
       </motion.h1>
@@ -72,7 +94,7 @@ const Merch = () => {
         Our merchandise is more than a look, it's a way of living music.<br/>
         Get yours now and carry Grooving with you everywhere.<br/>
       </motion.p>
-      
+
       <motion.button 
         className="explore-button" 
         initial={{ y: -50, opacity: 0 }} 
@@ -83,8 +105,7 @@ const Merch = () => {
         LET'S GROOVE!
       </motion.button>
 
-
-            <div ref={productsRef}>
+      <div ref={productsRef}>
         {Object.keys(merchData).map((category) => (
           <div key={category}>
             <h2 className="category-title">{category}</h2>

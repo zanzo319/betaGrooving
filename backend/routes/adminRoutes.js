@@ -9,17 +9,25 @@ router.post("/login", async (req, res) => {
     const { username, password } = req.body;
 
     try {
+        // Valida i dati in ingresso
+        if (!username || !password) {
+            return res.status(400).json({ message: "Username e password sono obbligatori" });
+        }
+
+        // Trova l'admin con il nome utente fornito
         const admin = await Admin.findOne({ username });
         if (!admin) return res.status(401).json({ message: "Username o password errati" });
 
+        // Confronta la password fornita con quella memorizzata
         const isMatch = await bcrypt.compare(password, admin.password);
         if (!isMatch) return res.status(401).json({ message: "Username o password errati" });
 
-        // Salviamo l'admin nella sessione
+        // Salva l'admin nella sessione
         req.session.admin = { id: admin._id, username: admin.username };
-        res.json({ message: "Login effettuato con successo" });
+        res.json({ message: "Login effettuato con successo", username: admin.username });
     } catch (error) {
-        res.status(500).json({ message: "Errore nel login" });
+        console.error("Errore durante il login:", error);
+        res.status(500).json({ message: "Errore interno nel login" });
     }
 });
 
@@ -35,8 +43,12 @@ router.get("/", (req, res) => {
 // **Logout Admin**
 router.post("/logout", (req, res) => {
     req.session.destroy(err => {
-        if (err) return res.status(500).json({ message: "Errore nel logout" });
-        res.json({ message: "Logout effettuato" });
+        if (err) {
+            console.error("Errore durante il logout:", err);
+            return res.status(500).json({ message: "Errore interno nel logout" });
+        }
+        res.clearCookie("connect.sid"); // Cancella il cookie della sessione
+        res.json({ message: "Logout effettuato con successo" });
     });
 });
 

@@ -5,11 +5,30 @@
   box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
 body, html {
   width: 100%;
   height: 100%;
   background-color: black;
-  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,16 +46,6 @@ body, html {
 }
 
 /* Logo */
-@font-face {
-    font-family: "Linked Now Extrabold";
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
-}
-
 .logo {
   font-size: 6rem;
   font-weight: bold;
@@ -48,16 +57,6 @@ body, html {
 }
 
 /* Motto */
-@font-face {
-    font-family: "MusticaPro-SemiBold";
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
-}
-
 .motto {
   font-size: 1.7rem;
   font-family: "MusticaPro-SemiBold";
@@ -107,7 +106,6 @@ body, html {
   padding: 50px 20px;
   margin: 0 auto;
   background-color: black;
-  color: white;
   text-align: center;
 }
 

@@ -5,6 +5,26 @@
   box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+@font-face {
+    font-family: "MusticaPro-SemiBold";
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+}
+
 body, html {
   width: 100%;
   height: 100%;
@@ -19,45 +39,57 @@ body, html {
 /* Contenitore principale */
 .home-container {
   width: 100%;
-  max-width: 1200px;
+  min-height: 100vh;
   text-align: center;
   padding: 50px 20px;
   overflow: hidden;
+  position: relative; /* Aggiunto per il video di sfondo */
+}
+
+/* Video di sfondo */
+.video-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* Copre l'intera altezza della viewport */
+  overflow: hidden;
+}
+
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1; /* Imposta il video sullo sfondo */
+}
+
+.video-background .video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contenitore per il logo, il motto e il pulsante */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
 }
 
 /* Logo */
-@font-face {
-    font-family: "Linked Now Extrabold";
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
-}
-
 .logo {
   font-size: 6rem;
   font-weight: bold;
   font-family: "Linked Now Extrabold"; 
   color: limegreen;
-  text-align: center;
   margin-bottom: 10px;
-  margin-top: 50px;
 }
 
 /* Motto */
-
-@font-face {
-    font-family: "MusticaPro-SemiBold";
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
-}
-
 .motto {
   font-size: 1.7rem;
   font-family: "MusticaPro-SemiBold";
@@ -83,7 +115,7 @@ body, html {
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease-in-out;
-  background-color: black;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -97,20 +129,19 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 900px;
-  margin: 50px auto; /* Spazio per separarlo dal resto della home */
+  width: 100vw; /* Copre l'intera larghezza della viewport */
+  height: 100%; /* Dinamicamente gestita dall'altezza dei contenuti */
   padding: 40px 20px;
+  margin: 50px auto;
   gap: 20px;
-  border: 2px solid limegreen;
-  border-radius: 10px;
-  background-color: rgba(50, 205, 50, 0.1);
-  box-shadow: 0 0 10px rgba(50, 205, 50, 0.5);
-  transition: transform 0.3s ease-in-out;
+  background: none; /* Colore di fallback */
+  background-size: cover; /* Il gradiente si estende completamente */
+  background-position: center; /* Il gradiente è centrato */
+  transition: background 0.5s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .home-event-section:hover {
-  transform: scale(1.02);
+  /* per il momento rendo trasformabile solo la locandina, non il testo transform: scale(1.02); */
 }
 
 /* Immagine Evento */
@@ -119,7 +150,6 @@ body, html {
   max-width: 400px;
   border-radius: 10px;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(50, 205, 50, 0.3);
 }
 
 .home-event-image:hover {
@@ -133,24 +163,26 @@ body, html {
 }
 
 .home-event-title {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 2rem; 
+  font-family: "Linked Now Extrabold"; 
   color: limegreen;
-  text-shadow: 0 0 10px limegreen;
 }
 
 .home-event-date {
-  font-size: 1rem;
-  color: lightgray;
+  font-size: 1.7rem;
+  font-family: "MusticaPro-SemiBold";
+  color: white;
 }
 
 .home-event-location {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-family: "MusticaPro-SemiBold";
   margin: 10px 0;
 }
 
 .home-event-lineup {
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-family: "MusticaPro-SemiBold";
   margin-bottom: 20px;
 }
 

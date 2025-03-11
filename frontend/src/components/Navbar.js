@@ -26,7 +26,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* Logo a sinistra attualmente non visibile */}
+      {/* Logo a sinistra */}
       {/* <div className="logoNav">
         <p>GROOVING</p>
       </div> */}
@@ -51,11 +51,6 @@ function Navbar() {
         <li>
           <NavLink to="/merch" className={({ isActive }) => (isActive ? "active" : "")}>
             Merch
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/about" className={({ isActive }) => (isActive ? "active" : "")}>
-            About Us
           </NavLink>
         </li>
       </ul>

@@ -18,12 +18,10 @@ const About = () => {
       </div>
       {/* Seconda sezione distaccata */}
       <div className="extra-section">
-        <h2 className="extra-section-title">About Our Journey</h2>
-        <p className="extra-section-content">
-          Our journey began in the heart of the underground music scene. 
-          We have been dedicated to bringing the best beats and vibes to our community. 
-          Join us as we continue to explore the world of music and share our passion with you.
-        </p>
+       <h1 className="text-blue-500 text-3xl font-bold underline">
+  Ciao, Tailwind CSS è attivo!
+</h1>
+
       </div>
     </div>
   );

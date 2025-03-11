@@ -1,16 +1,26 @@
 @font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
+}
+
+@font-face {
     font-family: "MusticaPro-SemiBold";
     src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
+    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
+         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
+         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
+         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
+         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
 }
 
 .navbar {
   display: flex;
-  justify-content: center; /* Centra il menu */
+  justify-content: center;
   align-items: center;
   background-color: black;
   padding: 30px 50px;
@@ -19,17 +29,17 @@
   top: 0;
   left: 0;
   z-index: 1000;
-  font-family: "MusticaPro-SemiBold";
+  font-family: "MusticaPro-SemiBold", sans-serif;
   transition: background-color 0.3s ease;
 }
 
 .navbar.transparent {
-  background-color: transparent; /* Colore trasparente quando viene aggiunta la classe */
+  background-color: transparent;
 }
 
 .logoNav {
   position: absolute;
-  left: 30px; /* Mantiene il logo a sinistra */
+  left: 30px;
   font-size: 1.8rem;
   font-weight: bold;
   color: limegreen;
@@ -71,9 +81,6 @@
 
 .nav-links a:hover::after {
   transform: scaleX(1);
-}
-
-.nav-links a::after {
   transform-origin: left;
 }
 
@@ -85,7 +92,7 @@
 /* Social Icons nella Navbar */
 .navbar-icons {
   position: absolute;
-  left: 30px; /* Posiziona le icone all'estrema sinistra */
+  left: 30px;
   display: flex;
   align-items: center;
   gap: 15px;

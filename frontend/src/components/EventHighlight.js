@@ -37,7 +37,7 @@ const EventHighlight = () => {
     return (
         <div className="event-highlight-container">
             <div className="event-highlight-card">
-                <img src={`http://localhost:8080/uploads/${evento.locandina}`} alt={evento.titolo} className="event-image" />
+                <img src={require(`../uploads/${evento.locandina}`)} alt={evento.titolo} className="event-image" />
                 <div className="event-info">
                     <p className="event-date"><strong>When:</strong> {new Date(evento.data).toLocaleString()}</p>
                     <h2 className="event-title">{evento.titolo}</h2>

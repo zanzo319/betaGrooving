@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag dinamici
 import axios from "axios";
 import EventHighlight from "../components/EventHighlight";
-import "../styles/Events.css";
+import EventCard from "../components/EventCard";
+import "../styles/Events.css"; // Mantieni il file CSS desktop
 
 const Events = () => {
     const [eventi, setEventi] = useState([]);
@@ -34,49 +36,59 @@ const Events = () => {
     const altriEventi = eventoInEvidenza ? eventi.slice(1) : [];
 
     return (
-        <div className="events-page">
-            <h1 className="page-title">UPCOMING EVENTS</h1>
+        <div className="events-page flex flex-col items-center bg-gray-100 min-h-screen px-4 py-8">
+            {/* Meta tag per la pagina degli eventi */}
+            <Helmet>
+                <title>Upcoming Events - Grooving</title>
+                <meta
+                    name="description"
+                    content="Explore upcoming events organized by Grooving. Discover the latest line-ups, venues, and exciting music performances near you."
+                />
+                <meta
+                    name="keywords"
+                    content="grooving events, live music, concerts, upcoming events, tickets, underground music"
+                />
+                <meta name="author" content="Grooving Team" />
+                <meta property="og:title" content="Upcoming Events - Grooving" />
+                <meta
+                    property="og:description"
+                    content="Don't miss Grooving's latest events and musical experiences. Check the schedule and book your tickets today!"
+                />
+                <meta property="og:image" content="/images/og-events.png" />
+                <meta property="og:url" content="http://yourdomain.com/events" />
+                <meta name="twitter:card" content="summary_large_image" />
+            </Helmet>
 
-            {error && <p className="error-message">{error}</p>}
+            {/* Titolo */}
+            <h1 className="page-title text-3xl md:text-4xl font-bold text-gray-800 text-center mb-6">
+                UPCOMING EVENTS
+            </h1>
 
-            {eventoInEvidenza && <EventHighlight evento={eventoInEvidenza} />}
+            {/* Messaggio di errore */}
+            {error && (
+                <p className="text-red-500 text-center text-lg mb-4">
+                    {error}
+                </p>
+            )}
 
-            <div className="event-list">
+            {/* Evento in evidenza */}
+            {eventoInEvidenza && (
+                <div className="w-full max-w-4xl mb-8">
+                    <EventHighlight evento={eventoInEvidenza} />
+                </div>
+            )}
+
+            {/* Lista degli altri eventi */}
+            <div className="event-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
                 {altriEventi.length === 0 ? (
-                    <p className="no-events">No other events scheduled.</p>
+                    <p className="text-gray-600 text-center text-lg col-span-full">
+                        No other events scheduled.
+                    </p>
                 ) : (
                     altriEventi.map(evento => (
                         <EventCard key={evento._id || evento.titolo} evento={evento} />
                     ))
                 )}
-            </div>
-        </div>
-    );
-};
-
-const EventCard = ({ evento }) => {
-    return (
-        <div className="event-card">
-            <div className="event-content">
-                {evento.locandina && (
-                    <img
-                        src={`http://localhost:8080/uploads/${evento.locandina}`}
-                        alt={evento.titolo}
-                        className="event-thumbnail"
-                    />
-                )}
-
-                <div className="event-details">
-                    <p className="event-date"><strong>When:</strong> {new Date(evento.data).toLocaleString()}</p>
-                    <h2 className="event-title">{evento.titolo}</h2>
-                    <p className="event-location"><strong>Where:</strong> {evento.luogo}</p>
-                    {evento.lineup && <p className="event-lineup"><strong>Line-up:</strong> {evento.lineup}</p>}
-                    {evento.biglietti && (
-                        <a href={evento.biglietti} className="buy-ticket-button" target="_blank" rel="noopener noreferrer">
-                            Buy Tickets
-                        </a>
-                    )}
-                </div>
             </div>
         </div>
     );

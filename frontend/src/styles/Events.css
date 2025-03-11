@@ -1,39 +1,66 @@
-/* Stile generale della pagina eventi */
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 @font-face {
-    font-family: "Narin-Medium";
-    src: url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.eot");
-    src: url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/9cd444748df099d5f38ebd11995b11aa.svg#Narin-Medium")format("svg");
+  font-family: "Linked Now Extrabold";
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
+}
+
+@font-face {
+  font-family: "MusticaPro-SemiBold";
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: auto; /* Disabilita il comportamento smooth predefinito */
 }
 
 .events-page {
-  max-width: 1200px;
+  width: 100vw;
   margin: 0 auto;
   padding: 50px 20px;
   text-align: center;
   color: #fff;
-  opacity: 0;
   animation: fadeIn 0.8s ease-in-out forwards;
+  font-family: "MusticaPro-SemiBold", sans-serif;
 }
 
 /* Titolo principale */
 .page-title {
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: bold;
-  color: #33ff33; /* Verde fluo */
+  color: limegreen;
   text-transform: uppercase;
   margin-top: 50px;
   margin-bottom: 30px;
+  font-family: "Linked Now Extrabold", sans-serif;
 }
 
 /* Sezione evento in evidenza */
 .event-highlight {
-  background-color: rgba(51, 255, 51, 0.08); /* Verde fluo trasparente */
-  border: 2px solid #33ff33;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid limegreen;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 40px;
@@ -52,7 +79,6 @@
   width: 40%;
   max-width: 400px;
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(51, 255, 51, 0.3);
 }
 
 /* Contenitore dettagli evento in evidenza */
@@ -65,9 +91,9 @@
 .event-highlight h2 {
   font-size: 2rem;
   font-weight: bold;
-  color: #33ff33;
+  color: limegreen;
   margin-bottom: 10px;
-  text-shadow: 0 0 15px #33ff33;
+  font-family: "Linked Now Extrabold", sans-serif;
 }
 
 /* Data e luogo evento in evidenza */
@@ -86,6 +112,7 @@
   padding: 10px 15px;
   border-radius: 5px;
   transition: background 0.3s, box-shadow 0.3s;
+  font-family: "MusticaPro-SemiBold", sans-serif;
 }
 
 .buy-ticket-button:hover {
@@ -102,19 +129,17 @@
 
 /* Singolo evento nella lista */
 .event-card {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid #33ff33;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid limegreen;
   padding: 15px;
   width: 300px;
   text-align: center;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 0 10px rgba(51, 255, 51, 0.2);
 }
 
 .event-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px #33ff33;
 }
 
 /* Immagine evento */
@@ -122,16 +147,15 @@
   width: 100%;
   border-radius: 5px;
   margin-bottom: 10px;
-  box-shadow: 0 0 10px rgba(51, 255, 51, 0.3);
 }
 
 /* Nome dell'evento */
 .event-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #33ff33;
+  color: limegreen;
   margin-bottom: 10px;
-  text-shadow: 0 0 10px #33ff33;
+  font-family: "Linked Now Extrabold", sans-serif;
 }
 
 /* Data e luogo evento */
@@ -151,7 +175,7 @@
 /* Nessun evento disponibile */
 .no-events {
   font-size: 1.2rem;
-  color: #ccc;
+  color: limegreen;
   margin-top: 20px;
 }
 
