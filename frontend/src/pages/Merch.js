@@ -10,20 +10,20 @@ const Merch = () => {
   // Dati prodotti
   const merchData = {
     Tanktop: [
-      { id: 1, name: "GROOVING Men's Tanktop", image: "./images/merch/tanktop/tank1.png" },
-      { id: 2, name: "GROOVING Women's Tanktop", image: "./images/merch/tanktop/tank2.png" }
+      { id: 1, name: "GROOVING Men's Tanktop", image: "./images/merch/tanktop/tank1.jpg" },
+      { id: 2, name: "GROOVING Women's Tanktop", image: "./images/merch/tanktop/tank2.jpg" }
     ],
     Shopper: [
       {
         id: 3,
         name: "GROOVING Shopper",
-        images: ["./images/merch/shopper/shopper1.png", "./images/merch/shopper/shopper2.png", "./images/merch/shopper/shopper3.png"]
+        images: ["./images/merch/shopper/shopper1.jpg", "./images/merch/shopper/shopper2.jpg", "./images/merch/shopper/shopper3.jpg"]
       }
     ],
     Hats: [
       {
         id: 4,
-        name: "GROOVING Hat", images: ["./images/merch/hats/hat1.png", "./images/merch/hats/hat2.png"]
+        name: "GROOVING Hat", images: ["./images/merch/hats/hat1.jpg", "./images/merch/hats/hat2.jpg"]
       }
     ]
   };
