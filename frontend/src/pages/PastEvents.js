@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag dinamici
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
 import "../styles/PastEvents.css";
 
@@ -132,7 +132,7 @@ const EventCard = ({ evento, isActive }) => {
       <div className="event-content">
         {evento.locandina && (
           <img
-            src={require(`../uploads/${evento.locandina}`)}
+            src={(`http://localhost:8080/uploads/${evento.locandina}`)}
             alt={evento.titolo}
             className="event-thumbnail"
           />

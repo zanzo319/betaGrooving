@@ -1,16 +1,44 @@
 import React, { useEffect, useState } from "react";
-import AdminNav from "../components/AdminNav"; // Menu fisso
+import { useNavigate } from "react-router-dom"; // Aggiungi per reindirizzamenti
+import AdminNav from "../components/AdminNav";
 import "../styles/AdminDashboard.css";
 
 const AdminDashboard = () => {
     const [eventi, setEventi] = useState([]);
     const [adminName, setAdminName] = useState("");
+    const navigate = useNavigate(); // Hook per il reindirizzamento
 
     useEffect(() => {
-        // Simulazione: Recupera gli ultimi eventi e il nome admin
+        const verifyToken = async () => {
+            const token = sessionStorage.getItem("token");
+            if (!token) {
+                navigate("/admin-login");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:8080/api/admin/verify-token", {
+                    method: "GET",
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+
+                if (!response.ok) {
+                    throw new Error("Token non valido");
+                }
+
+                const data = await response.json();
+                console.log("Token valido. Utente:", data.user);
+                setAdminName(data.user.username); // Opzionale: Imposta il nome admin
+            } catch (error) {
+                console.error("Errore durante la verifica del token:", error);
+                sessionStorage.removeItem("token"); // Rimuovi il token non valido
+                navigate("/admin-login"); // Reindirizza al login
+            }
+        };
+
+        verifyToken();
         fetchEventi();
-        setAdminName("admin");
-    }, []);
+    }, [navigate]);
 
     const fetchEventi = async () => {
         try {
@@ -21,7 +49,7 @@ const AdminDashboard = () => {
             const eventiRecenti = data
                 .filter((evento) => new Date(evento.data) > new Date())
                 .sort((a, b) => new Date(a.data) - new Date(b.data))
-                .slice(0, 3); // Mostra solo 3 eventi
+                .slice(0, 3);
             setEventi(eventiRecenti);
         } catch (error) {
             console.error("Errore durante il recupero degli eventi:", error);
@@ -30,9 +58,10 @@ const AdminDashboard = () => {
 
     return (
         <div>
-            <AdminNav /> {/* Menu sempre visibile */}
+            <AdminNav />
             <div className="admin-dashboard">
-                {/* <h2>Benvenuto, {adminName}</h2> per ora lasciamolo commentato */} 
+                {/* Se vuoi abilitare il messaggio di benvenuto */}
+                {/* <h2>Benvenuto, {adminName}</h2> */}
                 <section className="eventi-prossimi">
                     <h3>Prossimi Eventi</h3>
                     {eventi.length === 0 ? (

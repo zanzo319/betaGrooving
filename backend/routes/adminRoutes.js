@@ -43,6 +43,11 @@ const verifyAdmin = (req, res, next) => {
     next();
 };
 
+// Verifica la validità del token
+router.get("/verify-token", verifyToken, (req, res) => {
+    res.status(200).json({ message: "Token valido", user: req.user });
+});
+
 // Configurazione Multer per caricamento locandine
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
