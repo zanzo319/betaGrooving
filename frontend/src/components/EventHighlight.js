@@ -43,8 +43,8 @@ const EventHighlight = () => {
                     <h2 className="event-title">{evento.titolo}</h2>
                     <p className="event-location"><strong>Where:</strong> {evento.luogo}</p>
                     <p className="event-lineup"><strong>Line-up:</strong> {evento.lineup}</p>
-                    {evento.biglietti && (
-                        <a href={evento.biglietti} className="buy-ticket-button" target="_blank" rel="noopener noreferrer">
+                    {evento.buyTicketsLink && (
+                        <a href={evento.buyTicketsLink} className="buy-ticket-button" target="_blank" rel="noopener noreferrer">
                             Buy Tickets
                         </a>
                     )}

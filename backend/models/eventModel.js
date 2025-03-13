@@ -14,7 +14,7 @@ const eventSchema = new mongoose.Schema(
       required: [true, "La data è obbligatoria"],
       validate: {
         validator: function (value) {
-          return value > new Date();
+          return value > new Date(); // Assicura che la data sia futura
         },
         message: "La data deve essere nel futuro",
       },
@@ -27,32 +27,39 @@ const eventSchema = new mongoose.Schema(
       maxlength: [100, "Il luogo non può superare i 100 caratteri"],
     },
     locandina: {
-      type: String,
+      type: String, // La locandina è salvata come percorso nella cartella uploads
       trim: true,
       validate: {
         validator: function (value) {
-          return /^.*\.(jpg|jpeg|png|webp|gif)$/i.test(value);
+          return /^.*\.(jpg|jpeg|png|webp|gif)$/i.test(value); // Controlla estensioni valide
         },
         message: "Il file deve essere un'immagine valida (jpg, png, webp, gif)",
       },
     },
-    bigliettiDisponibili: {
-      type: Number,
-      required: [true, "Il numero di biglietti disponibili è obbligatorio"],
-      min: [0, "I biglietti disponibili non possono essere negativi"],
+    buyTicketsLink: {
+      type: String,
+      required: [true, "Il link per l'acquisto dei biglietti è obbligatorio"],
+      trim: true,
+      validate: {
+        validator: function (value) {
+          const urlPattern = new RegExp(/^(http|https):\/\/[^ "]+$/);
+          return urlPattern.test(value); // Assicura che sia un URL valido
+        },
+        message: "Inserisci un URL valido per il link dei biglietti",
+      },
     },
     lineup: {
       type: String,
-      required: [true, "La lineup è obbligatoria"], // Nuovo campo obbligatorio
+      required: [true, "La lineup è obbligatoria"],
       trim: true,
       minlength: [3, "La lineup deve avere almeno 3 caratteri"],
     },
     archiviato: {
       type: Boolean,
-      default: false,
+      default: false, // Campo per archiviare eventi passati
     },
   },
-  { timestamps: true }
+  { timestamps: true } // Aggiunge campi createdAt e updatedAt automaticamente
 );
 
 module.exports = mongoose.model("Event", eventSchema);

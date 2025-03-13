@@ -1,81 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag dinamici
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
-import "../styles/Home.css"; // Stile specifico per la home
+import "../styles/Home.css";
 
 const Home = () => {
-    const [eventoRecente, setEventoRecente] = useState(null);
-    const [backgroundStyle, setBackgroundStyle] = useState({}); // Stato per il gradiente dinamico
+    const [eventiFuturi, setEventiFuturi] = useState([]);
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const fetchEventoRecente = async () => {
+        const fetchEventiFuturi = async () => {
             try {
                 const response = await axios.get("http://localhost:8080/api/eventi");
 
                 if (response.data.length > 0) {
-                    // Trova l'evento più recente
-                    const eventiFuturi = response.data
+                    const eventi = response.data
                         .filter(evento => new Date(evento.data).getTime() >= new Date().getTime())
                         .sort((a, b) => new Date(a.data) - new Date(b.data));
 
-                    if (eventiFuturi.length > 0) {
-                        const evento = eventiFuturi[0];
-                        setEventoRecente(evento); // Salva l'evento più recente
-
-                        // Richiedi il gradiente dal backend
-                        fetchGradientFromBackend(evento.locandina);
-                    }
+                    setEventiFuturi(eventi); // Salva tutti gli eventi futuri
                 }
             } catch (err) {
-                console.error("Error retrieving recent event:", err);
-                setError("Error loading event.");
+                console.error("Errore durante il recupero degli eventi:", err);
+                setError("Errore durante il caricamento degli eventi.");
             }
         };
 
-        fetchEventoRecente();
+        fetchEventiFuturi();
     }, []);
-
-    // Funzione per richiedere i colori dal backend e creare il gradiente
-    const fetchGradientFromBackend = async (imageName) => {
-        try {
-            const response = await axios.get(`http://localhost:8080/api/extract-colors?imageName=${imageName}`);
-            const { colors } = response.data;
-
-            // Combina i colori in un gradiente
-            const gradient = `linear-gradient(to bottom right, ${colors.join(", ")})`;
-            setBackgroundStyle({
-                background: gradient, // Gradient dinamico generato
-                transition: "background 0.5s ease-in-out",
-            });
-        } catch (err) {
-            console.error("Errore durante il recupero dei colori:", err);
-        }
-    };
-
-    // Funzione per lo scroll fluido alla sezione evento
-    const scrollToEvent = () => {
-        const eventSection = document.getElementById("latest-event-section");
-        if (eventSection) {
-            eventSection.scrollIntoView({ behavior: "smooth" });
-        }
-    };
 
     return (
         <div className="home-container">
             {/* Meta tag per la homepage */}
             <Helmet>
                 <title>Grooving - The Underground Sound Machine</title>
-                <meta name="description" content="Join Grooving, the underground sound machine! Discover upcoming events, latest line-ups, and vibrant music experiences in your area." />
-                <meta name="keywords" content="grooving, underground music, events, live music, concerts, tickets" />
-                <meta name="author" content="Grooving Team" />
-                <meta property="og:title" content="Grooving - The Underground Sound Machine" />
-                <meta property="og:description" content="Stay updated with the latest underground music events and join the Grooving movement!" />
-                <meta property="og:image" content="/images/og-image.png" />
-                <meta property="og:url" content="http://yourdomain.com/" />
-                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="description" content="Join Grooving, the underground sound machine!" />
             </Helmet>
 
+            {/* Sezione Video, Logo e Motto */}
             <div className="video-section">
                 <div className="video-background">
                     <video autoPlay loop muted className="video">
@@ -86,46 +47,51 @@ const Home = () => {
                 <div className="content">
                     <p className="logo">GROOVING</p>
                     <p className="motto">The Underground Sound Machine</p>
-
-                    {/* Pulsante Show Events */}
                     <div className="button-container">
-                        <button className="explore-button" onClick={scrollToEvent}>
+                        <button
+                            className="explore-button"
+                            onClick={() =>
+                                document.getElementById("events-section").scrollIntoView({
+                                    behavior: "smooth",
+                                })
+                            }
+                        >
                             Show Events
                         </button>
                     </div>
                 </div>
-                {error && <p className="error-message">{error}</p>}
             </div>
 
-            {eventoRecente && (
-                <div
-                    id="latest-event-section"
-                    className="home-event-section"
-                    style={backgroundStyle} // Applica il gradiente dinamico
-                >
-                    <img
-                        src={`http://localhost:8080/uploads/${eventoRecente.locandina}`} // Percorso dinamico all'immagine
-                        alt={eventoRecente.titolo}
-                        className="home-event-image"
-                    />
-                    <div className="home-event-info">
-                        <h2 className="home-event-title">{eventoRecente.titolo}</h2>
-                        <p className="home-event-date"><strong>When:</strong> {new Date(eventoRecente.data).toLocaleString()}</p>
-                        <p className="home-event-location"><strong>Where:</strong> {eventoRecente.luogo}</p>
-                        <p className="home-event-lineup"><strong>Line-up:</strong> {eventoRecente.lineup}</p>
-                        {eventoRecente.biglietti && (
+                        {/* Sezione Evento Futuro */}
+                        <div id="events-section" className="home-event-section">
+                <h2 className="event-section-title">UPCOMING EVENTS</h2>
+
+                {eventiFuturi.length > 0 && (
+                    <div className="single-event">
+                        <img
+                            src={`http://localhost:8080/uploads/${eventiFuturi[0].locandina}`}
+                            alt={eventiFuturi[0].titolo}
+                            className="event-image-large"
+                        />
+                        <div className="event-info-large">
+                            <h2>{eventiFuturi[0].titolo}</h2>
+                            <p><strong>When:</strong> {new Date(eventiFuturi[0].data).toLocaleString()}</p>
+                            <p><strong>Where:</strong> {eventiFuturi[0].luogo}</p>
+                            <p><strong>Line-up:</strong> {eventiFuturi[0].lineup}</p>
                             <a
-                                href={eventoRecente.biglietti}
-                                className="buy-ticket-button"
+                                href={eventiFuturi[0].buyTicketsLink}
+                                className="buy-tickets-button"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 Buy Tickets
                             </a>
-                        )}
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+
+                {error && <p className="error-message">{error}</p>}
+            </div>
         </div>
     );
 };

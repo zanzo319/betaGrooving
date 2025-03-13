@@ -9,18 +9,29 @@ function Footer() {
     <div className="footer-container">
       <footer className="footer">
         <div className="footer-left">
-          <p>GROOVING - The Underground Sound Machine</p>
-          <a href="mailto:groovingita@gmail.com" className="footer-email">groovingita@gmail.com</a>
-          <p>CAP e NOME COMUNE, Italy</p>
-          <p>&copy; {new Date().getFullYear()} GROOVING. All Rights Reserved.</p>
+          <div className="footer-logoGrooving">
+            <p>GROOVING</p>
+          </div>
+            {/* <a href="mailto:groovingita@gmail.com" className="footer-email">groovingita@gmail.com</a> */}
+            {/* <div className="footer-capComune">
+              <p>Italy</p>
+            </div> */} 
+            <div className="footer-copyrights">
+              <p>&copy; {new Date().getFullYear()} GROOVING. All Rights Reserved.</p>
+            </div>
         </div>
         <div className="footer-right">
-          <a href="https://www.instagram.com/__grooving__" className="icon" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="mailto:groovingita@gmail.com" className="icon">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+          <div className="footer-followUs">
+            <p>Follow Us</p>
+          </div>
+          <div className="footer-socialIcons">
+            <a href="https://www.instagram.com/__grooving__" className="icon" target="_blank" rel="noopener noreferrer">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="mailto:groovingita@gmail.com" className="icon">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </a>
+          </div>
         </div>
       </footer>
     </div>

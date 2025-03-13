@@ -1,41 +1,3 @@
-/* Contenitore principale per centrare il form */
-.admin-login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black; /* Sfondo scuro */
-}
-
-/* Stile del form */
-.admin-login {
-    width: 320px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #222; /* Grigio scuro */
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    text-align: center;
-}
-
-/* Titolo */
-@font-face {
-    font-family: "Linked Now Extrabold";
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
-}
-
-.admin-login h2 {
-    font-family: "Linked Now Extrabold";
-    margin-bottom: 20px;
-}
-
-/* Campi input */
-
 @font-face {
     font-family: "MusticaPro-SemiBold";
     src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
@@ -46,6 +8,43 @@
     url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
 }
 
+@font-face {
+    font-family: "Linked Now Extrabold";
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
+}
+
+/* Contenitore principale per centrare il form */
+.admin-login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+/* Stile del form */
+.admin-login {
+    width: 320px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #222; /* Grigio scuro */
+    color: white;
+    text-align: center;
+}
+
+/* Titolo */
+.admin-login h2 {
+    font-family: "Linked Now Extrabold";
+    margin-bottom: 20px;
+    color: limegreen;
+}
+
+/* Campi input */
 .admin-login input {
     font-family: "MusticaPro-SemiBold";
     width: 100%;

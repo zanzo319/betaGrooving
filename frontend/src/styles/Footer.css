@@ -6,12 +6,6 @@ html, body {
   overflow-x: hidden;
 }
 
-.footer-container {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 /* Nascondi la barra di scorrimento */
 body::-webkit-scrollbar {
   display: none;
@@ -25,15 +19,19 @@ body::-webkit-scrollbar {
 
 .footer {
   background-color: black;
-  font-family: "MusticaPro-SemiBold";
+  font-family: "Linked Now Extrabold";
   color: limegreen;
-  padding: 30px;
-  font-size: 1rem;
-  margin-top: 50%;
+  padding: 10px 30px;
+  font-size: 1.8rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100vw;
   position: relative;
   bottom: 0;
   display: flex;
+  border-top: 2px solid limegreen;
   justify-content: space-between; /* Distribuisce lo spazio tra le sezioni di sinistra e destra */
   align-items: center; /* Allinea gli elementi verticalmente al centro */
   box-sizing: border-box;
@@ -55,20 +53,38 @@ body::-webkit-scrollbar {
 /* Icone Social - Sezione Destra */
 .footer-right {
   display: flex;
+  flex-direction: column;
   justify-content: flex-end;
-  gap: 15px;
+  gap: 10px;
 }
 
+/* Testo FOLLOW US */ 
+.footer-followUs {
+  font-size: 2rem;
+  font-family: "Linked Now Extrabold";
+  color: limegreen;
+  text-transform: uppercase;
+  text-align: right;
+  margin: 0; /* rimuove margini per un posiziomamento preciso */
+}
+
+.footer-socialIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
 .footer .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   border: 2px solid limegreen;
   border-radius: 50%;
   color: limegreen;
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -79,10 +95,37 @@ body::-webkit-scrollbar {
   transform: scale(1.1);
 }
 
+/* Logo */
+.footer-logoGrooving {
+  font-size: 3rem;
+  font-family: "Linked Now Extrabold";
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: limegreen; 
+}
+
 /* Email */
 .footer-email {
-  color: limegreen; /* Stesso colore delle altre scritte */
-  text-decoration: none; /* Rimuove la sottolineatura */
+  font-size: 1.2rem;
+  font-family: "MusticaPro-SemiBold";
+  color: limegreen; 
+  text-decoration: none; 
+}
+
+/* CAP e comune */
+.footer-capComune {
+  font-size: 1.2rem;
+  font-family: "MusticaPro-SemiBold";
+  margin-top: 5px;
+  color: limegreen; 
+}
+
+/* Copyrights */
+.footer-copyrights {
+  font-size: 1rem;
+  font-family: "MusticaPro-SemiBold";
+  margin-top: 20px;
+  color: limegreen; 
 }
 
 /* Modalità responsive */

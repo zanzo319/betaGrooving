@@ -10,7 +10,7 @@ const EditEvent = () => {
     const [titolo, setTitolo] = useState("");
     const [data, setData] = useState("");
     const [luogo, setLuogo] = useState("");
-    const [bigliettiDisponibili, setBigliettiDisponibili] = useState("");
+    const [buyTicketsLink, setBuyTicketsLink] = useState("");
     const [locandina, setLocandina] = useState(null);
     const [lineup, setLineup] = useState(""); // Campo aggiunto
     const [error, setError] = useState("");
@@ -32,7 +32,7 @@ const EditEvent = () => {
                 setTitolo(data.titolo);
                 setData(data.data);
                 setLuogo(data.luogo);
-                setBigliettiDisponibili(data.bigliettiDisponibili);
+                setBuyTicketsLink(data.buyTicketsLink);
                 setLineup(data.lineup || ""); // Lineup predefinito
             } catch (err) {
                 console.error("Errore durante il recupero dell'evento:", err);
@@ -51,7 +51,7 @@ const EditEvent = () => {
         setError("");
         setSuccess("");
     
-        if (!titolo || !data || !luogo || !bigliettiDisponibili || !lineup) {
+        if (!titolo || !data || !luogo || !buyTicketsLink || !lineup) {
             setError("Tutti i campi sono obbligatori!");
             return;
         }
@@ -60,7 +60,7 @@ const EditEvent = () => {
         formData.append("titolo", titolo);
         formData.append("data", data);
         formData.append("luogo", luogo);
-        formData.append("bigliettiDisponibili", bigliettiDisponibili);
+        formData.append("buyTicketsLink", buyTicketsLink);
         formData.append("lineup", lineup);
         if (locandina) {
             formData.append("locandina", locandina);
@@ -133,12 +133,12 @@ const EditEvent = () => {
                     </label>
 
                     <label>
-                        Biglietti Disponibili:
+                        Link evento:
                         <input
-                            type="number"
-                            min="1"
-                            value={bigliettiDisponibili}
-                            onChange={(e) => setBigliettiDisponibili(e.target.value)}
+                            type="text"
+                            value={buyTicketsLink}
+                            onChange={(e) => setBuyTicketsLink(e.target.value)}
+                            placeholder="Inserisci il link per l'acquisto dei biglietti"
                             required
                         />
                     </label>

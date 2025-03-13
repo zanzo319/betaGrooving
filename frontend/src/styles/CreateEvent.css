@@ -1,29 +1,9 @@
-@font-face {
-    font-family: "Linked Now Extrabold";
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold")format("svg");
-}
-
-@font-face {
-    font-family: "MusticaPro-SemiBold";
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold")format("svg");
-}
-
 /* Contenitore principale */
 .create-event-container {
     font-family: "Linked Now Extrabold", "MusticaPro-SemiBold", sans-serif;
     max-width: 600px;
-    margin: 120px auto; /* Coerenza con AdminDashboard */
-    padding: 20px;
+    margin: 120px auto;
+    padding: 25px;
     background-color: #222;
     color: #fff;
     border-radius: 8px;
@@ -34,87 +14,122 @@
     text-align: center;
     font-size: 2rem;
     color: limegreen;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 /* Form */
 form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px; /* Spazio tra i campi */
 }
 
 /* Etichette */
 label {
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: flex-start;
     font-weight: bold;
     font-size: 1rem;
     color: #ddd;
+    gap: 15px; /* Spazio tra etichetta e campo */
+    margin-bottom: 5px; /* Spazio dal campo */
 }
 
-/* Input e textarea */
+/* Contenitore di input con layout personalizzato */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Spazio tra etichetta e input */
+    text-align: left;
+}
+
+/* Campi input e textarea */
 input,
 textarea {
     padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     background: #2a2a2a;
     color: #fff;
     font-size: 1rem;
-    transition: border-color 0.3s;
+    width: 100%; /* Uniforma tutti i campi */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Campo lineup specifico */
 textarea {
-    resize: vertical;
-    min-height: 100px;
+    height: 48px; /* Altezza uniforme agli input */
+    resize: both; /* Ridimensionabile orizzontalmente e verticalmente */
+    background: #2d2d2d;
+    border: 1px solid #444;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-/* Focus */
-input:focus,
-textarea:focus {
-    outline: none;
-    border: 2px solid limegreen;
+/* Campo data e biglietti con larghezza specifica */
+input[type="date"] {
+    max-width: 250px; /* Riduzione della larghezza */
+    text-align: center; /* Allineamento al centro */
+}
+
+input[type="number"] {
+    max-width: 350px; /* Riduzione della larghezza */
+    text-align: center; /* Allineamento al centro */
 }
 
 /* Pulsante */
 button {
+    margin-top: 20px;
     padding: 12px;
     background-color: limegreen;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     color: #222;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-button:hover {
-    background-color: #00cc00;
-    transform: scale(1.05);
+/* File Uploader */
+input[type="file"] {
+    padding: 5px;
+    background-color: #333;
+    color: #ddd;
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-size: 0.9rem;
 }
 
-/* Messaggi */
-.error {
-    color: red;
+/* Messaggi di errore e successo */
+.error,
+.success {
     text-align: center;
     font-weight: bold;
+}
+
+.error {
+    color: red;
 }
 
 .success {
     color: limegreen;
-    text-align: center;
-    font-weight: bold;
 }
 
-/* Responsive */
+/* Responsive Design - fino a 4K */
 @media (max-width: 768px) {
     .create-event-container {
         max-width: 90%;
-        padding: 15px;
+        padding: 20px;
+    }
+
+    label {
+        font-size: 0.9rem;
     }
 }
 
-@media (min-width: 3840px) {
+@media (min-width: 1080px) and (max-width: 3840px) {
     .create-event-container {
         max-width: 800px;
         padding: 30px;
@@ -122,5 +137,10 @@ button:hover {
 
     .create-event-container h2 {
         font-size: 2.5rem;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 15px;
     }
 }

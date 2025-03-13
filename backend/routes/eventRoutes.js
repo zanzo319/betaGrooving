@@ -65,17 +65,33 @@ console.log("verifyAdmin:", verifyAdmin); // Deve essere una funzione
 console.log("upload.single:", upload.single); // Deve essere una funzione
 router.post("/admin/create-event", verifyToken, verifyAdmin, upload.single("locandina"), async (req, res) => {
     try {
-        const { titolo, data, luogo, bigliettiDisponibili, lineup } = req.body;
+        const { titolo, data, luogo, buyTicketsLink, lineup } = req.body;
         const locandina = req.file ? req.file.filename : null;
 
-        if (bigliettiDisponibili < 0) {
-            return res.status(400).json({ message: "I biglietti disponibili non possono essere negativi" });
+        console.log("Richiesta arrivata per creazione evento:", req.body);
+
+        // Conversione della data
+        const eventDate = new Date(data);
+
+        // Validazione della data
+        if (isNaN(eventDate.getTime()) || eventDate <= new Date()) {
+            return res.status(400).json({ message: "La data deve essere valida e futura" });
         }
 
-        const evento = new Event({ titolo, data, luogo, locandina, bigliettiDisponibili, lineup });
+        // Creazione dell'evento
+        const evento = new Event({
+            titolo,
+            data: eventDate,
+            luogo,
+            locandina,
+            buyTicketsLink,
+            lineup,
+        });
         await evento.save();
+
         res.status(201).json({ message: "Evento aggiunto con successo", evento });
     } catch (error) {
+        console.error("Errore nella creazione dell'evento:", error);
         res.status(500).json({ message: "Errore nella creazione dell'evento", error });
     }
 });
@@ -83,25 +99,23 @@ router.post("/admin/create-event", verifyToken, verifyAdmin, upload.single("loca
 // Modifica evento
 router.put("/:id", verifyToken, verifyAdmin, validateObjectId, upload.single("locandina"), async (req, res) => {
     try {
-        console.log("Richiesta arrivata per modifica ID:", req.params.id); 
-        const { titolo, data, luogo, bigliettiDisponibili, lineup } = req.body;
+        console.log("Richiesta arrivata per modifica ID:", req.params.id);
+        const { titolo, data, luogo, buyTicketsLink, lineup } = req.body;
         const evento = await Event.findById(req.params.id);
 
         if (!evento) return res.status(404).json({ message: "Evento non trovato" });
 
-        if (bigliettiDisponibili < 0) {
-            return res.status(400).json({ message: "I biglietti disponibili non possono essere negativi" });
-        }
+        const eventDate = new Date(data);
 
-        if (new Date(data) < new Date()) {
-            return res.status(400).json({ message: "La data deve essere nel futuro" });
+        if (isNaN(eventDate.getTime()) || eventDate <= new Date()) {
+            return res.status(400).json({ message: "La data deve essere valida e futura" });
         }
 
         evento.titolo = titolo;
-        evento.data = data;
+        evento.data = eventDate;
         evento.luogo = luogo;
-        evento.bigliettiDisponibili = bigliettiDisponibili;
-	    evento.lineup = lineup;
+        evento.buyTicketsLink = buyTicketsLink;
+        evento.lineup = lineup;
 
         if (req.file) {
             evento.locandina = req.file.filename;

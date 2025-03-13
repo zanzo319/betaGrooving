@@ -123,19 +123,24 @@ router.post("/logout", (req, res) => {
 router.post("/create-event", verifyToken, verifyAdmin, upload.single("locandina"), async (req, res) => {
     try {
         console.log("Richiesta ricevuta per creare un evento"); // Log per debug
-        const { titolo, data, luogo, bigliettiDisponibili, lineup } = req.body;
+        const { titolo, data, luogo, buyTicketsLink, lineup } = req.body;
         const locandina = req.file ? req.file.filename : null;
 
         // Controllo sui campi
-        if (!titolo || !data || !luogo || !bigliettiDisponibili || !lineup) {
+        if (!titolo || !data || !luogo || !buyTicketsLink || !lineup) {
             return res.status(400).json({ message: "Tutti i campi sono obbligatori" });
         }
 
-        if (bigliettiDisponibili < 0) {
-            return res.status(400).json({ message: "I biglietti disponibili non possono essere negativi" });
+        // Conversione del campo data
+        const eventDate = new Date(data);
+
+        // Verifica che la data sia valida e futura
+        if (isNaN(eventDate.getTime()) || eventDate <= new Date()) {
+            return res.status(400).json({ message: "La data deve essere valida e futura" });
         }
 
-        const evento = new Event({ titolo, data, luogo, locandina, bigliettiDisponibili, lineup });
+        // Creazione del nuovo evento
+        const evento = new Event({ titolo, data: eventDate, luogo, locandina, buyTicketsLink, lineup });
         await evento.save();
 
         res.status(201).json({ message: "Evento creato con successo", evento });

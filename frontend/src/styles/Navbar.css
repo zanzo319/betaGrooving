@@ -1,21 +1,21 @@
 @font-face {
-    font-family: "Linked Now Extrabold";
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
-    src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
-         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
-         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
-         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
-         url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
+  font-family: "Linked Now Extrabold";
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
 }
 
 @font-face {
-    font-family: "MusticaPro-SemiBold";
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
-    src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
-         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
-         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
-         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
-         url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
+  font-family: "MusticaPro-SemiBold";
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
 }
 
 .navbar {
@@ -33,22 +33,42 @@
   transition: background-color 0.3s ease;
 }
 
-.navbar.transparent {
-  background-color: transparent;
-}
-
 .logoNav {
   position: absolute;
   left: 30px;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 2rem;
+  font-family: "Linked Now Extrabold", sans-serif;
   color: limegreen;
   text-decoration: none;
+}
+
+.logoNav .logo-link {
+  text-decoration: none;
+  color: limegreen; 
+  font-size: 2rem;
+  font-family: "Linked Now Extrabold", sans-serif;
+}
+
+/* Gestione Navbar Home */
+.navbar-icons.left-icons {
+  left: 30px; /* Posizionamento delle icone social sulla sinistra */
+  right: auto;
+  position: absolute;
+}
+
+.navbar-icons {
+  position: absolute;
+  right: 30px; /* Default: posiziona a destra */
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -61,7 +81,7 @@
   text-decoration: none;
   font-size: 1.2rem;
   position: relative;
-  padding: 5px 0;
+  padding: 10px 15px;
   transition: color 0.5s ease-in-out;
 }
 
@@ -79,7 +99,8 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links .active::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -89,25 +110,17 @@
   color: limegreen;
 }
 
-/* Social Icons nella Navbar */
-.navbar-icons {
-  position: absolute;
-  left: 30px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
+/* Icone Social */
 .navbar .icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border: 2px solid limegreen;
   border-radius: 50%;
   color: limegreen;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
