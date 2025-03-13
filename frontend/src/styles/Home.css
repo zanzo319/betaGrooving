@@ -136,8 +136,8 @@ body::-webkit-scrollbar {
   font-family: "Linked Now Extrabold";
   color: limegreen;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 2px;
 }
 
 /* Evento più prossimo */
@@ -166,37 +166,43 @@ body::-webkit-scrollbar {
 
 /* Dettagli dell'evento */
 .event-info-large {
-  width: 55%; /* I dettagli occupano il 55% della larghezza */
-  text-align: left; /* Allineamento a sinistra per i testi */
+  width: 60%; /* I dettagli occupano il 60% della larghezza */
+  text-align: right; /* Allineamento a destra per i testi */
   font-family: "MusticaPro-SemiBold";
   margin: 0 auto;
 }
 
 .event-info-large h2 {
   font-size: 2.5rem;
+  text-transform: uppercase;
   font-family: "Linked Now Extrabold";
   color: limegreen;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .event-info-large p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 10px;
   line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.event-buy-tickets-button {
+  margin-top: 40px;
 }
 
 .buy-tickets-button {
   display: inline-block;
-  padding: 10px 20px;
+  padding: 15px 30px;
   font-size: 1.2rem;
   font-family: "MusticaPro-SemiBold";
-  background-color: transparent;
-  border: 2px solid limegreen;
   color: white;
+  border: 2px solid limegreen;
+  border-radius: 30px;
+  background-color: transparent;
+  transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
 }
 
 .buy-tickets-button:hover {

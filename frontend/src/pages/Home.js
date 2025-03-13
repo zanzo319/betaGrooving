@@ -78,14 +78,13 @@ const Home = () => {
                             <p><strong>When:</strong> {new Date(eventiFuturi[0].data).toLocaleString()}</p>
                             <p><strong>Where:</strong> {eventiFuturi[0].luogo}</p>
                             <p><strong>Line-up:</strong> {eventiFuturi[0].lineup}</p>
-                            <a
-                                href={eventiFuturi[0].buyTicketsLink}
+                            <div className="event-buy-tickets-button">
+                                <a href={eventiFuturi[0].buyTicketsLink}
                                 className="buy-tickets-button"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                            >
-                                Buy Tickets
-                            </a>
+                                >Buy Tickets</a>
+                            </div>
                         </div>
                     </div>
                 )}
