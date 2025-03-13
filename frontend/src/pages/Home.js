@@ -44,14 +44,14 @@ const Home = () => {
                         Your browser does not support the video tag.
                     </video>
                 </div>
-                <div className="content">
-                    <p className="logo">GROOVING</p>
-                    <p className="motto">The Underground Sound Machine</p>
+                <div className="home-content">
+                    <p className="logoHome">GROOVING</p>
+                    <p className="mottoHome">The Underground Sound Machine</p>
                     <div className="button-container">
                         <button
-                            className="explore-button"
+                            className="show-events-button"
                             onClick={() =>
-                                document.getElementById("events-section").scrollIntoView({
+                                document.getElementById("home-events-section").scrollIntoView({
                                     behavior: "smooth",
                                 })
                             }
@@ -63,24 +63,24 @@ const Home = () => {
             </div>
 
                         {/* Sezione Evento Futuro */}
-                        <div id="events-section" className="home-event-section">
-                <h2 className="event-section-title">UPCOMING EVENTS</h2>
+                        <div id="home-events-section" className="home-event-section">
+                <h2 className="home-event-section-title">UPCOMING EVENTS</h2>
 
                 {eventiFuturi.length > 0 && (
-                    <div className="single-event">
+                    <div className="home-single-event">
                         <img
                             src={`http://localhost:8080/uploads/${eventiFuturi[0].locandina}`}
                             alt={eventiFuturi[0].titolo}
-                            className="event-image-large"
+                            className="home-event-image-large"
                         />
-                        <div className="event-info-large">
+                        <div className="home-event-info-large">
                             <h2>{eventiFuturi[0].titolo}</h2>
                             <p><strong>When:</strong> {new Date(eventiFuturi[0].data).toLocaleString()}</p>
                             <p><strong>Where:</strong> {eventiFuturi[0].luogo}</p>
                             <p><strong>Line-up:</strong> {eventiFuturi[0].lineup}</p>
-                            <div className="event-buy-tickets-button">
+                            <div className="eventHome-buy-tickets-button">
                                 <a href={eventiFuturi[0].buyTicketsLink}
-                                className="buy-tickets-button"
+                                className="home-buy-tickets-button"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 >Buy Tickets</a>

@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Helmet } from "react-helmet-async"; // Importa Helmet per i meta tag dinamici
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import "../styles/Merch.css";
 
@@ -85,18 +85,18 @@ const Merch = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <motion.h1 className="logo" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }}>
+      <motion.h1 className="logoMerch" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1 }}>
         GET INTO THE GROOVE
       </motion.h1>
 
-      <motion.p className="motto" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
+      <motion.p className="mottoMerch" initial={{ y: -50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1, delay: 0.5 }}>
         Style and Sound.<br/>
         Our merchandise is more than a look, it's a way of living music.<br/>
         Get yours now and carry Grooving with you everywhere.<br/>
       </motion.p>
 
       <motion.button 
-        className="explore-button" 
+        className="explore-merch" 
         initial={{ y: -50, opacity: 0 }} 
         animate={{ y: 0, opacity: 1 }} 
         transition={{ duration: 0.2, delay: 1 }}

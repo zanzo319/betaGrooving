@@ -51,7 +51,7 @@ const PastEvents = () => {
 
     setCurrentIndex(newIndex);
 
-    // Se raggiungiamo uno dei bordi estremi, riposizioniamo silenziosamente
+    {/* // Se raggiungiamo uno dei bordi estremi, riposizioniamo silenziosamente
     setTimeout(() => {
       if (newIndex < originalLength) {
         setCurrentIndex(newIndex + originalLength); // Riposiziona senza interruzioni visive
@@ -59,16 +59,17 @@ const PastEvents = () => {
         setCurrentIndex(newIndex - originalLength); // Riposiziona senza interruzioni visive
       }
     }, 500); // Allinea il riposizionamento al tempo della transizione
+   */}
   };
 
   // Calcola lo stile per il carosello
   const carouselStyle = {
-    transform: `translateX(calc(-${currentIndex} * (25% + 20px)))`,
+    transform: `translateX(calc(-${currentIndex} * (20% + 30px)))`,
     transition: "transform 0.5s ease",
   };
 
   return (
-    <div className="eventi-passati-container">
+    <div className="past-event-container">
       {/* Meta tag per la pagina degli eventi passati */}
       <Helmet>
         <title>Past Events - Grooving</title>
@@ -91,24 +92,24 @@ const PastEvents = () => {
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
-      <h1 className="page-title">PAST EVENTS</h1>
+      <h1 className="past-events-page-title">PAST EVENTS</h1>
 
       {error && <p className="error-message">{error}</p>}
 
       {loading ? (
         <p className="loading-message">Loading events...</p>
       ) : (
-        <div className="carousel-container" ref={carouselRef}>
+        <div className="past-event-carousel-container" ref={carouselRef}>
           {/* Pulsante Sinistro */}
-          <button className="scroll-button" onClick={() => handleScroll("left")}>
+          <button className="past-event-scroll-button" onClick={() => handleScroll("left")}>
             ❮
           </button>
 
-          <div className="carousel" style={carouselStyle}>
+          <div className="past-event-carousel" style={carouselStyle}>
             {eventiPassati.map((evento, index) => (
               <div
                 key={index}
-                className={`carousel-item ${index === currentIndex ? "active" : ""}`}
+                className={`past-event-carousel-item ${index === currentIndex ? "active" : ""}`}
               >
                 <EventCard evento={evento} isActive={index === currentIndex} />
               </div>
@@ -116,7 +117,7 @@ const PastEvents = () => {
           </div>
 
           {/* Pulsante Destro */}
-          <button className="scroll-button" onClick={() => handleScroll("right")}>
+          <button className="past-event-scroll-button" onClick={() => handleScroll("right")}>
             ❯
           </button>
         </div>
@@ -128,28 +129,27 @@ const PastEvents = () => {
 const EventCard = ({ evento, isActive }) => {
   if (!evento) return null; // Gestione di eventi nulli
   return (
-    <div className={`evento ${isActive ? "evento-active" : ""}`}>
-      <div className="event-content">
+    <div className={`past-event-card ${isActive ? "evento-active" : ""}`}>
+      <div className="past-event-content">
         {evento.locandina && (
           <img
             src={(`http://localhost:8080/uploads/${evento.locandina}`)}
             alt={evento.titolo}
-            className="event-thumbnail"
+            className="past-event-thumbnail"
           />
         )}
-        <div className="event-details">
-          <p className="event-date">
+        <div className="past-event-details">
+          <p className="past-event-date">
             <strong>When:</strong> {new Date(evento.data).toLocaleString()}
           </p>
-          <h2 className="event-title">{evento.titolo}</h2>
-          <p className="event-location">
+          <h2 className="past-event-title">{evento.titolo}</h2>
+          <p className="past-event-location">
             <strong>Where:</strong> {evento.luogo}
           </p>
-          {evento.lineup && (
-            <p className="event-lineup">
-              <strong>Line-up:</strong> {evento.lineup}
-            </p>
-          )}
+          {evento.lineup && 
+          (<p className="past-event-lineup">
+                <strong>Line-up:</strong> {evento.lineup}
+          </p>)}
         </div>
       </div>
     </div>

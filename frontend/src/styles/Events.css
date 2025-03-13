@@ -1,10 +1,3 @@
-/* Reset generale */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: "Linked Now Extrabold";
   src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
@@ -25,101 +18,107 @@
        url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
 }
 
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body, html {
   width: 100%;
   height: 100%;
   background-color: black;
   color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  scroll-behavior: auto; /* Disabilita il comportamento smooth predefinito */
-}
-
-.events-page {
-  width: 100vw;
-  margin: 0 auto;
-  padding: 50px 20px;
-  text-align: center;
-  color: #fff;
-  animation: fadeIn 0.8s ease-in-out forwards;
+  scroll-behavior: smooth;
   font-family: "MusticaPro-SemiBold", sans-serif;
 }
 
-/* Titolo principale */
-.page-title {
+.events-page {
+  width: 100%;
+  padding: 50px 20px;
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+
+.event-page-title {
   font-size: 6rem;
-  font-weight: bold;
   color: limegreen;
   text-transform: uppercase;
   margin-top: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   font-family: "Linked Now Extrabold", sans-serif;
 }
 
-/* Sezione evento in evidenza */
+/* Evento in evidenza */
 .event-highlight {
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 2px solid limegreen;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 40px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   gap: 20px;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Immagine evento in evidenza */
-.event-highlight img {
-  width: 40%;
-  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 30px;
   border-radius: 10px;
+  margin: 20px auto 40px auto;
+  width: 100vw;
+  max-width: 80%;
 }
 
-/* Contenitore dettagli evento in evidenza */
-.event-details {
+.highlight-image {
+  width: 50%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.event-text-details {
   flex: 1;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
 }
 
-/* Titolo evento in evidenza */
-.event-highlight h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: limegreen;
-  margin-bottom: 10px;
+.event-text-details h2 {
+  text-transform: uppercase;
   font-family: "Linked Now Extrabold", sans-serif;
+  font-size: 2.5rem;
+  color: limegreen;
+  margin-bottom: 50px;
 }
 
-/* Data e luogo evento in evidenza */
-.event-highlight p {
-  font-size: 1.2rem;
-  color: #ccc;
+.event-text-details p {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: white;
+  line-height: 3rem;
+  margin-bottom: 10px;
 }
 
-/* Bottone acquisto biglietti */
-.buy-ticket-button {
+.event-buy-ticket {
+  margin-top: 50px;
+}
+
+.event-buy-ticket-button {
   display: inline-block;
   padding: 15px 30px;
   font-size: 1.2rem;
-  font-family: "MusticaPro-SemiBold";
   color: white;
   border: 2px solid limegreen;
   border-radius: 30px;
   text-decoration: none;
+  font-family: "MusticaPro-SemiBold", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
   background-color: transparent;
   transition: all 0.3s ease;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 20px;
 }
 
-.buy-ticket-button:hover {
+.event-buy-ticket-button:hover {
   background-color: darkgreen;
 }
 
-/* Lista eventi */
+/* Lista altri eventi */
 .event-list {
   display: flex;
   flex-wrap: wrap;
@@ -127,70 +126,87 @@ body, html {
   gap: 20px;
 }
 
-/* Singolo evento nella lista */
 .event-card {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 15px;
   width: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
 }
 
-/* Immagine evento */
 .event-thumbnail {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 10px;
 }
 
-/* Nome dell'evento */
 .event-title {
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 1.5rem;
   color: limegreen;
   margin-bottom: 10px;
-  font-family: "Linked Now Extrabold", sans-serif;
 }
 
-/* Data e luogo evento */
-.event-date, .event-location {
-  font-size: 1rem;
-  color: #ccc;
-  margin-bottom: 10px;
-}
-
-/* Line-up */
-.event-lineup {
+.event-date, .event-location, .event-lineup {
   font-size: 1rem;
   color: #ddd;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
-/* Nessun evento disponibile */
+/* Nessun evento */
 .no-events {
   font-size: 1.2rem;
   color: limegreen;
   margin-top: 20px;
 }
 
-/* RESPONSIVE MODE */
+/* Responsive */
 @media (max-width: 768px) {
-  .page-title {
-    font-size: 2rem;
+  .event-highlight {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlight-image {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .event-details {
+    text-align: center;
   }
 
   .event-card {
     width: 90%;
   }
+}
 
-  .event-highlight {
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 480px) {
+  .event-page-title {
+    font-size: 3rem;
   }
 
-  .event-highlight img {
+  .event-highlight h2 {
+    font-size: 1.5rem;
+  }
+
+  .event-highlight p {
+    font-size: 1rem;
+  }
+
+  .event-buy-ticket-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .event-card {
     width: 100%;
-    max-width: 100%;
+  }
+
+  .event-title {
+    font-size: 1.2rem;
+  }
+
+  .event-date, .event-location, .event-lineup {
+    font-size: 0.9rem;
   }
 }

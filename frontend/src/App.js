@@ -21,9 +21,15 @@ const Merch = lazy(() => import("./pages/Merch"));
 function Layout() {
   const location = useLocation(); // Ora è nel contesto di Router
   
-  // la navbar del sito non viene mostrata nelle pagine admin del sito
+  // la navbar del sito non viene mostrata nelle pagine admin
   // in sostituzione, verrà mostrata la navbar della dashboard una volta fatto il login
   const showNavbar = !location.pathname.startsWith("/admin"); 
+
+  // il footer non viene mostrato nelle pagine Admin, Events, Past-Events e Merch
+  const showFooter = !location.pathname.startsWith("/events") 
+                      && !location.pathname.startsWith("/past-events") 
+                      && !location.pathname.startsWith("/merch")
+                      && !location.pathname.startsWith("/admin");
 
   return (
     <>
@@ -76,7 +82,7 @@ function Layout() {
           </Routes>
         </Suspense>
       </div>
-      <Footer />
+      {showFooter && <Footer />}
     </>
   );
 }

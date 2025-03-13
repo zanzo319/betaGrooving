@@ -1,24 +1,62 @@
-.eventi-passati-container {
-  max-width: 1200px;
+/* Reset generale */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Linked Now Extrabold";
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot");
+  src: url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/7fbd15959f7d4eab13062af29b568605.svg#Linked Now Extrabold") format("svg");
+}
+
+@font-face {
+  font-family: "MusticaPro-SemiBold";
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot");
+  src: url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/8784ec149f84f77ada651e2dd98e0943.svg#MusticaPro-SemiBold") format("svg");
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+
+.past-event-container {
+  width: 100vw;
   margin: 50px auto;
   padding: 20px;
   color: limegreen;
   text-align: center;
-  overflow: hidden; /* Rimuove qualsiasi overflow non necessario */
+  overflow: hidden;
   font-family: "MusticaPro-SemiBold", sans-serif;
 }
 
-.page-title {
+.past-events-page-title {
   font-family: "Linked Now Extrabold";
   font-size: 6rem;
   margin-top: 50px;
-  margin-bottom: 30px; /* Spazio tra il titolo e il carosello */
+  margin-bottom: 30px;
   color: limegreen;
   text-transform: uppercase;
 }
 
 /* Contenitore principale del carosello */
-.carousel-container {
+.past-event-carousel-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -27,22 +65,23 @@
   height: 100vh;
 }
 
-.carousel {
+.past-event-carousel {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 200px;
   transition: transform 0.5s ease;
-  will-change: transform; /* Ottimizzazione */
+  will-change: transform; 
 }
 
-.carousel-item {
+.past-event-carousel-item {
   flex: 0 0 30%; /* Dimensione delle schede */
   opacity: 1; /* Schede non attive */
   transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Pulsanti di scorrimento */
-.scroll-button {
+.past-event-scroll-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -56,18 +95,19 @@
   transition: all 0.3s;
 }
 
-.scroll-button:first-of-type {
+.past-event-scroll-button:first-of-type {
   left: 10px; /* Posizione del pulsante sinistro */
 }
 
-.scroll-button:last-of-type {
+.past-event-scroll-button:last-of-type {
   right: 10px; /* Posizione del pulsante destro */
 }
 
 /* Scheda evento */
-.evento {
+.past-event-card {
+  margin-top: 50px;
   width: 100%; /* Riempie lo spazio della scheda */
-  max-width: 300px; /* Dimensione massima della scheda */
+  max-width: 400px; /* Dimensione massima della scheda */
   text-align: center;
   padding: 0; /* Nessun padding */
   border: none; /* Nessun bordo */
@@ -76,7 +116,7 @@
 }
 
 /* Immagini delle schede */
-.event-thumbnail {
+.past-event-thumbnail {
   width: 100%;
   height: 100%;
   border-radius: 15px;
@@ -84,42 +124,42 @@
 }
 
 /* Dettagli dell'evento */
-.event-details {
+.past-event-details {
   text-align: center;
   color: white;
   padding: 10px 0; /* Spazio interno per i dettagli */
 }
 
-.event-title {
+.past-event-title {
   font-size: 1.2rem;
   color: limegreen;
 }
 
-.event-date,
-.event-location,
-.event-lineup {
+.past-event-date,
+.past-event-location,
+.past-event-lineup {
   font-size: 1rem;
   color: lightgray;
 }
 
 /* Modalità Responsiva */
 @media screen and (max-width: 768px) {
-  .carousel-item {
+  .past-event-carousel-item {
     flex: 0 0 40%; /* Schede più grandi su schermi piccoli */
   }
 
-  .scroll-button {
+  .past-event-scroll-button {
     font-size: 2rem;
     padding: 8px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .carousel-item {
+  .past-event-carousel-item {
     flex: 0 0 60%; /* Schede ancora più grandi su schermi molto piccoli */
   }
 
-  .scroll-button {
+  .past-event-scroll-button {
     font-size: 1.5rem;
     padding: 6px;
   }

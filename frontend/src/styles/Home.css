@@ -81,7 +81,7 @@ body::-webkit-scrollbar {
 }
 
 /* Contenitore per il logo, il motto e il pulsante */
-.content {
+.home-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -90,20 +90,20 @@ body::-webkit-scrollbar {
   z-index: 2;
 }
 
-.logo {
-  font-size: 6rem;
+.logoHome {
+  font-size: 6rem !important;
   font-family: "Linked Now Extrabold";
   color: limegreen;
   margin-bottom: 10px;
 }
 
-.motto {
-  font-size: 1.7rem;
+.mottoHome {
+  font-size: 1.8rem;
   font-family: "MusticaPro-SemiBold";
   margin-bottom: 30px;
 }
 
-.explore-button {
+.show-events-button {
   display: inline-block;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -116,7 +116,7 @@ body::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.explore-button:hover {
+.show-events-button:hover {
   background: darkgreen;
 }
 
@@ -131,7 +131,7 @@ body::-webkit-scrollbar {
 }
 
 /* Titolo "UPCOMING EVENTS" */
-.event-section-title {
+.home-event-section-title {
   font-size: 6rem;
   font-family: "Linked Now Extrabold";
   color: limegreen;
@@ -141,7 +141,7 @@ body::-webkit-scrollbar {
 }
 
 /* Evento più prossimo */
-.single-event {
+.home-single-event {
   display: flex;
   flex-direction: row; /* Disposizione orizzontale: locandina e dettagli affiancati */
   align-items: center;
@@ -155,7 +155,7 @@ body::-webkit-scrollbar {
   gap: 20px; /* Spaziatura tra locandina e dettagli */
 }
 
-.event-image-large {
+.home-event-image-large {
   width: 40%; /* La locandina occupa il 40% della larghezza totale */
   max-width: 400px; /* Limite massimo di larghezza */
   height: auto;
@@ -165,14 +165,14 @@ body::-webkit-scrollbar {
 }
 
 /* Dettagli dell'evento */
-.event-info-large {
+.home-event-info-large {
   width: 60%; /* I dettagli occupano il 60% della larghezza */
   text-align: right; /* Allineamento a destra per i testi */
   font-family: "MusticaPro-SemiBold";
   margin: 0 auto;
 }
 
-.event-info-large h2 {
+.home-event-info-large h2 {
   font-size: 2.5rem;
   text-transform: uppercase;
   font-family: "Linked Now Extrabold";
@@ -180,18 +180,18 @@ body::-webkit-scrollbar {
   margin-bottom: 30px;
 }
 
-.event-info-large p {
+.home-event-info-large p {
   font-size: 1.3rem;
   margin-bottom: 10px;
   line-height: 1.5;
   text-transform: uppercase;
 }
 
-.event-buy-tickets-button {
+.eventHome-buy-tickets-button {
   margin-top: 40px;
 }
 
-.buy-tickets-button {
+.home-buy-tickets-button {
   display: inline-block;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -205,85 +205,85 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
-.buy-tickets-button:hover {
+.home-buy-tickets-button:hover {
   background-color: darkgreen;
 }
 
 /* Modalità responsiva */
 @media (max-width: 768px) {
-  .logo {
+  .logoHome {
     font-size: 3rem;
   }
 
-  .motto {
+  .mottoHome {
     font-size: 1.2rem;
   }
 
-  .explore-button {
+  .show-events-button {
     padding: 10px 20px;
   }
 
-  .event-section-title {
+  .home-event-section-title {
     font-size: 2.5rem;
   }
 
-  .single-event {
+  .home-single-event {
     flex-direction: column; /* Disposizione verticale su schermi piccoli */
     align-items: center;
     gap: 20px; /* Aggiunta di spazio tra locandina e dettagli */
   }
 
-  .event-image-large {
+  .home-event-image-large {
     width: 80%; /* Espandi la locandina su schermi piccoli */
     max-width: 400px;
   }
 
-  .event-info-large {
+  .home-event-info-large {
     width: 100%; /* Le informazioni occupano l'intera larghezza */
     text-align: center; /* Centra il contenuto */
   }
 
-  .event-info-large h2 {
+  .home-event-info-large h2 {
     font-size: 2rem;
   }
 
-  .event-info-large p {
+  .home-event-info-large p {
     font-size: 1rem;
   }
 
-  .buy-tickets-button {
+  .home-buy-tickets-button {
     padding: 10px 20px;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .logo {
+  .logoHome {
     font-size: 2rem;
   }
 
-  .motto {
+  .mottoHome {
     font-size: 1rem;
   }
 
-  .explore-button {
+  .show-events-button {
     padding: 8px 16px;
     font-size: 0.9rem;
   }
 
-  .event-section-title {
+  .home-event-section-title {
     font-size: 2rem;
   }
 
-  .event-info-large h2 {
+  .home-event-info-large h2 {
     font-size: 1.5rem;
   }
 
-  .event-info-large p {
+  .home-event-info-large p {
     font-size: 0.9rem;
   }
 
-  .buy-tickets-button {
+  .home-buy-tickets-button {
     padding: 8px 18px;
     font-size: 0.9rem;
   }
